@@ -1,0 +1,19 @@
+<h3>Cards List</h3>
+
+<% if @user %>
+	<%= link_to "New Card", :action => :new %>
+<% end %>
+
+	<ul>
+		<% @cards.each do |card| %>
+		<li> <%= card["_id"] %> - <%= link_to card["title"], :action => :show, :id => card["_id"] %> </li>	
+		<% end %>
+	</ul>
+
+
+<h4>Public Cards</h4>
+<ul>
+	<% @public_cards.each do |card| %>
+	<li> <%= card["_id"] %> - <%= link_to card["title"], :action => :show, :id => card["_id"] %> </li>	
+	<% end %>
+</ul>

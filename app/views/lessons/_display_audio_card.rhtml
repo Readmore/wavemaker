@@ -1,0 +1,12 @@
+<div class="card_audio_display">
+	<h4><%= link_to c.title, card_path(c._id) %><br/>
+		<font size="smaller">&nbsp;by <%= link_to c.author, :controller => "users", :action => "public_data" %> on <%= c.created_at %> </font></h4>
+		<p>
+		<embed src="http://webjay.org/flash/dark_player" width="400" height="40" wmode="transparent" flashVars="playlist_url=<%= c.post %>&amp;skin_color_1=-145,-89,-4,5&skin_color_2=-141,20,0,0" type="application/x-shockwave-flash" />
+		</p>
+		<%= render :partial => "layouts/show_tags", :locals => {:tags => c.tags.split(",") }%>
+</div>
+
+
+	
+ 

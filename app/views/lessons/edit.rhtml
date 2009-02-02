@@ -1,0 +1,10 @@
+<h3>Lesson Info</h3>
+<% if @lesson %>
+	<p> 
+		<%= render :partial => "form" %>
+
+	<% @lesson.attributes.each_pair do |key, val| %>
+		<span><i><%=key %></i> => <%= val %><br/></span>
+	<% end %>	
+	</p>
+<% end %>

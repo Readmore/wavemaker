@@ -1,0 +1,5 @@
+<div class="lesson_display">
+	<b><%= link_to l.title, lesson_path(l._id) %><br/>
+		<font size="smaller">&nbsp;by <%= link_to l.author, :controller => "users", :action => "public_data" %> on <%= l.created_at %> </font></b>
+		<%= render :partial => "layouts/show_tags", :locals => {:tags => l.tags.split(",") }%>
+</div>

@@ -1,0 +1,13 @@
+<h3>Course Display</h3>
+
+<div id="show_area">
+	<h3><%= @course.title %><br/>
+		<font size="smaller">&nbsp;by <%= @course.author %> - <%= @course.created_at %></h3>
+	<%= @course.post %>
+
+</div>
+<%= link_to "Back", :action => :index %> | 
+<% if @user.login == @course.author %>
+	<%= link_to "Edit", :action => :edit, :id => @course._id %> |
+	<%= link_to "Destroy", course_path(@course._id), :method => :delete %>
+<% end %>

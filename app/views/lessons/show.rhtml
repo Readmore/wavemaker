@@ -1,0 +1,12 @@
+<h3>Lesson Display</h3>
+
+<div id="show_area">
+	<h3><%= @lesson.title %></h3>
+	<%= @lesson.post %>
+
+</div>
+<%= link_to "Back", :action => :index %> | 
+<% if @user.login == @lesson.author %>
+	<%= link_to "Edit", :action => :edit, :id => @lesson._id %> |
+	<%= link_to "Destroy", lesson_path(@lesson._id), :method => :delete %>
+<% end %>

@@ -1,0 +1,20 @@
+<h3>Lessons List</h3>
+
+<% if @user %>
+	<%= link_to "New Lesson", :action => :new %>
+<% end %>
+
+<ul>
+	<% @lessons.each do |lesson| %>
+	<li> <%= lesson["_id"] %> - <%= link_to lesson["title"], :action => :show, :id => lesson["_id"] %> </li>	
+	<% end %>
+</ul>
+
+<% if @public_lessons.length > 0 %>
+	<h4>Public Lessons</h4>
+	<ul>
+		<% @public_lessons.each do |lesson| %>
+		<li> <%= lesson["_id"] %> - <%= link_to lesson["title"], :action => :show, :id => lesson["_id"] %> </li>	
+		<% end %>
+	</ul>
+<% end %>

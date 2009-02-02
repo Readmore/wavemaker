@@ -1,0 +1,13 @@
+<h4><%= c.title %></h4>
+<div id="video-<%= c.id %>-container">
+<embed src="http://localhost:3000/<%= c.post %>"
+href="http://localhost:3000/<%= c.post %>"
+width="640" height="500"
+target="myself"
+controller="false"
+autoplay="false"
+scale="1" cache="true"
+type="video/quicktime"
+pluginspage="http://www.apple.com/quicktime/download/">
+</div>
+<%= render :partial => "layouts/show_tags", :locals => {:tags => c.tags.split(",") }%>

@@ -1,0 +1,20 @@
+<h3>Courses List</h3>
+
+<% if @user %>
+	<%= link_to "New Course", :action => :new %>
+<% end %>
+
+<ul>
+	<% @courses.each do |course| %>
+	<li> <%= course["_id"] %> - <%= link_to course["title"], :action => :show, :id => course["_id"] %> </li>	
+	<% end %>
+</ul>
+
+<% if @public_courses.length > 0 %>
+	<h4>Public Courses</h4>
+	<ul>
+		<% @public_courses.each do |course| %>
+		<li> <%= course["_id"] %> - <%= link_to course["title"], :action => :show, :id => course["_id"] %> </li>	
+		<% end %>
+	</ul>
+<% end %>

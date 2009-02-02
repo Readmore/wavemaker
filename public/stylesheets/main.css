@@ -1,0 +1,46 @@
+body {}
+
+#header {
+	text-align:left;
+}
+
+#main_body { 
+	margin-left:10%;
+	margin-right:10%;
+	width:80%;
+	text-align:left;
+}
+
+.card_note_display{
+	padding:8px;
+	border:1px solid;
+	overflow:hidden;
+}
+
+.card_audio_display{
+	padding:8px;
+	border:1px solid;
+	overflow:hidden;
+}
+
+.card_video_display{
+	padding:8px;
+	border:1px solid;
+	overflow:hidden;
+}
+
+.card_embed_display{
+	padding:8px;
+	border:1px solid;
+	overflow:hidden;
+}
+
+.card_image_display{
+	padding:8px;
+	border:1px solid;
+	overflow:hidden;
+}
+
+.lesson_display{
+	
+}

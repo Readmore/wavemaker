@@ -1,0 +1,10 @@
+<h3>New Course</h3>
+<% if @course %>
+	<p> 
+		<%= render :partial => "form" %>
+
+	<% @course.attributes.each_pair do |key, val| %>
+		<span><i><%=key %></i> => <%= val %><br/></span>
+	<% end %>	
+	</p>
+<% end %>

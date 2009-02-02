@@ -1,0 +1,15 @@
+<html>
+	<head>
+		<title>Wavemaker - Test</title>
+		<%= javascript_include_tag :defaults %>
+		<%= stylesheet_link_tag "main" %>
+	</head>
+	
+	<body align="center">
+		<%= render :partial => "header" %>
+		
+		<%= yield %>
+		
+		<%= render :partial => "footer" %>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+<h3>Card Info</h3>
+<% if @card %>
+	<p> 
+		<%= render :partial => "form" %>
+
+	<% @card.attributes.each_pair do |key, val| %>
+		<span><i><%=key %></i> => <%= val %><br/></span>
+	<% end %>	
+	</p>
+<% end %>

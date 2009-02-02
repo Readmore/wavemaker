@@ -1,0 +1,6 @@
+<span class="tags">
+	<b>Tags:</b>
+	<% tags.each_with_index do |tag, indx| %>
+		<%= indx == 0 ? "<i>#{tag.strip}" : "| <i>#{tag.strip}"  %></i>
+	<% end %>
+</span>
