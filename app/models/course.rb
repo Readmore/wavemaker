@@ -54,8 +54,19 @@ class Course < GitRecord
   end
   
   def self.save(username, attributes, pub=false)
+    
+    # LESSONS need to be saved as a fully qualified identifier. 
+    # that consists of  SHA:path/to/file
+    # e.g. "03c0d83cd2e9e1195fb3eb60d6604220fde13da7:#{username}/Lesson/bfe057d0-d483-012b-7578-002332ced2f8"
+    # this will allow for direct versioning and allow published lessons and courses to have static content
+    
+    
     saved = GitRecord.save(username, attributes, pub)
     if saved
+      if pub
+        # make public lessons for all public courses
+          Course.set_lessons_public(username, attributes["lessons"].split(",").each {|str| str.strip!})
+      end
       l = Course.new(username)
       l.attributes = attributes
       l
@@ -66,13 +77,13 @@ class Course < GitRecord
 
   private
   
-  def set_lessons_public(lessons)
+  def self.set_lessons_public(username, lessons)
     lessons.each do |lesson_id|
-      lesson = Lesson.find(@user.login, lesson_id)
-      if lesson.public != "1"
+      lesson = Lesson.find(username, lesson_id)
+      if lesson.public == "0"
         lesson.public = "1"
-        lesson.save(@user.login, lesson.attributes, true)
       end
+      Lesson.save(username, lesson.attributes, true)
     end
   end
   

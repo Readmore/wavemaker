@@ -14,7 +14,7 @@
 	<h4>Public Lessons</h4>
 	<ul>
 		<% @public_lessons.each do |lesson| %>
-		<li> <%= lesson["_id"] %> - <%= link_to lesson["title"], :action => :show, :id => lesson["_id"] %> </li>	
+		<li> <%= lesson["_id"] %> - <%= link_to lesson["title"], :action => :show, :id => lesson["_id"], :pub => "1" %> </li>	
 		<% end %>
 	</ul>
 <% end %>

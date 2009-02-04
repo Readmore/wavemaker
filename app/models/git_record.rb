@@ -44,9 +44,14 @@ class GitRecord
     
     # TODO 
     # if version is not HEAD then we need to find the specified version 
-    # this can be accomplished on the command line with 
-    # git cat-file blob HEAD^^^:public/users/brandon/Lessons/9ad1af20-cd8c-012b-735d-002332ced2f8
-    # or git cat-file SHA-OF-COMMIT:path to file
+    # this can be accomplished with the following call
+    # str = repo.object("SHA:path/to/file").contents
+    # This puts the contents of the file with SHA version into str. Then you can read it with something like this
+    #  arr = str.split("\n")
+    #  Then the steps in read hash, as if you had just gotten in from the file block
+    # e.g.
+    # g.object("03c0d83cd2e9e1195fb3eb60d6604220fde13da7:brandon/Cards/bfe057d0-d483-012b-7578-002332ced2f8") 
+    
     
       repo = self.repo(self.repo_name)
       if pub
@@ -130,7 +135,7 @@ class GitRecord
     
     branches = []
     if pub
-      branches << 'master'
+      branches << "master"
     end
     
     branches << username
@@ -143,7 +148,6 @@ class GitRecord
         #Write Dirs and Files
         FileUtils.mkdir_p "#{self.path_to_repo}/#{username}/#{attributes["type"]}s"
         FileUtils.cd("#{self.path_to_repo}/#{username}/#{attributes["type"]}s") {
-            puts "Wrote #{attributes['types']} #{attributes['_id']} with public val of #{attributes['public']}"
             self.write_hash(attributes, attributes["_id"])
         }
          #Check-in files to branch
@@ -151,6 +155,7 @@ class GitRecord
           repo.commit("added #{attributes['_id']} version #{attributes['_rev']} to #{branch} branch")
       else
         #we didn't have a full object hash, no file was saved
+        puts "File failed the attributes full check in GitRecord."
         return false
       end
     end    

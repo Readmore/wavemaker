@@ -42,11 +42,11 @@ class Card < GitRecord
     c
   end
   
-  def self.save(username, attributes, pub=false)
-    saved = GitRecord.save(username, attributes, pub)
+  def self.save(username, attrs, pub=false)
+    saved = GitRecord.save(username, attrs, pub)
     if saved
       c = Card.new(username)
-      c.attributes = attributes
+      c.attributes = attrs
       c
     else
       nil

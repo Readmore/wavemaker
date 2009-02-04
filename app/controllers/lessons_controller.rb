@@ -25,10 +25,11 @@ class LessonsController < ApplicationController
   # GET /lessons/1
   # GET /lessons/1.xml
   def show
-    if @user
+    
+    branch = "master"
+    
+    if @user && !params[:pub]
       branch = @user.login
-    else
-      branch = "master"
     end
     
     @lesson = Lesson.find(branch, params[:id])
