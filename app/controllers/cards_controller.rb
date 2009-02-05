@@ -23,15 +23,18 @@ class CardsController < ApplicationController
   # GET /cards/1
   # GET /cards/1.xml
   def show
-    #@post = post.find(params[:id])
-    if @user
+    branch = "master"
+    
+    if @user && !params[:pub]
       branch = @user.login
-    else
-      branch = "master"
     end
     
     #@card = Card.new(@user.login)
-    @card = Card.find(branch, params[:id])
+    if params[:version]
+      @card = Card.find(branch, params[:id], params[:version])
+    else
+      @card = Card.find(branch, params[:id])
+    end
     
     respond_to do |format|
       format.html # show.html.erb

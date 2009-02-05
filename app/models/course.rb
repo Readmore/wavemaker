@@ -46,9 +46,9 @@ class Course < GitRecord
     end
   end
   
-  def self.find(username, id, pub=false)
+  def self.find(username, id, version="HEAD")
     l = Course.new(@username)
-    l.attributes = GitRecord.find(username, id, pub)
+    l.attributes = GitRecord.find_by_version(username, id, version)
     l.lessons = l.lessons.split(",").each {|str| str.strip!}
     l
   end
@@ -59,14 +59,12 @@ class Course < GitRecord
     # that consists of  SHA:path/to/file
     # e.g. "03c0d83cd2e9e1195fb3eb60d6604220fde13da7:#{username}/Lesson/bfe057d0-d483-012b-7578-002332ced2f8"
     # this will allow for direct versioning and allow published lessons and courses to have static content
-    
-    
+    if pub
+      # make public lessons for all public courses
+        Course.set_lessons_public(username, attributes["lessons"].split(",").each {|str| str.strip!})
+    end
     saved = GitRecord.save(username, attributes, pub)
     if saved
-      if pub
-        # make public lessons for all public courses
-          Course.set_lessons_public(username, attributes["lessons"].split(",").each {|str| str.strip!})
-      end
       l = Course.new(username)
       l.attributes = attributes
       l
@@ -78,13 +76,27 @@ class Course < GitRecord
   private
   
   def self.set_lessons_public(username, lessons)
+    lessons_arr = []
     lessons.each do |lesson_id|
-      lesson = Lesson.find(username, lesson_id)
+      version = "HEAD"
+      res = lesson_id.split(":")
+      if res[1]
+        version = res[0]
+        lesson_id = res[1]
+      end
+      lesson = Lesson.find(username, lesson_id, version)
+      
       if lesson.public == "0"
         lesson.public = "1"
       end
-      Lesson.save(username, lesson.attributes, true)
+      l = Lesson.save(username, lesson.attributes, true)
+      if l && l.commit
+        lessons_arr << "#{l.commit}:#{l._id}"
+      else
+        lessons_arr << "HEAD:#{l._id}"
+      end
     end
+    lessons_arr.join(",")
   end
   
 end

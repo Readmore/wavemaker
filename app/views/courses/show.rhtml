@@ -7,7 +7,7 @@
 
 </div>
 <%= link_to "Back", :action => :index %> | 
-<% if @user.login == @course.author %>
+<% if @user && @user.login == @course.author %>
 	<%= link_to "Edit", :action => :edit, :id => @course._id %> |
 	<%= link_to "Destroy", course_path(@course._id), :method => :delete %>
 <% end %>

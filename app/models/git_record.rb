@@ -35,23 +35,12 @@ class GitRecord
     {}
   end 
   
-  def self.find(username, id, pub=false, version="HEAD")
+  def self.find(username, id, pub=false)
     # id is a combination of obj_type, username, and filename. 
     # e.g. card/3423427122.mov or lesson/CS1043_iPhone_Development.html
     #given a username and file_id grab the specified hash from the file.
       #use the username to determine the correct directory to pull from
-      #then just read hash on the directory + id
-    
-    # TODO 
-    # if version is not HEAD then we need to find the specified version 
-    # this can be accomplished with the following call
-    # str = repo.object("SHA:path/to/file").contents
-    # This puts the contents of the file with SHA version into str. Then you can read it with something like this
-    #  arr = str.split("\n")
-    #  Then the steps in read hash, as if you had just gotten in from the file block
-    # e.g.
-    # g.object("03c0d83cd2e9e1195fb3eb60d6604220fde13da7:brandon/Cards/bfe057d0-d483-012b-7578-002332ced2f8") 
-    
+      #then just read hash on the directory + id    
     
       repo = self.repo(self.repo_name)
       if pub
@@ -74,6 +63,41 @@ class GitRecord
          end
       end
      obj
+  end
+  
+  def self.find_by_version(username, id, version="HEAD", pub=false)
+     # TODO 
+      # if version is not HEAD then we need to find the specified version 
+      # this can be accomplished with the following call
+      # str = repo.object("SHA:path/to/file").contents
+      # This puts the contents of the file with SHA version into str. Then you can read it with something like this
+      #  arr = str.split("\n")
+      #  Then the steps in read hash, as if you had just gotten in from the file block
+      # e.g.
+      # g.object("03c0d83cd2e9e1195fb3eb60d6604220fde13da7:brandon/Cards/bfe057d0-d483-012b-7578-002332ced2f8") 
+    repo = self.repo(self.repo_name)
+    if pub
+      #checkout master branch
+      repo.branch("master").checkout
+    else
+      #checkout username branch
+      repo.branch(username).checkout
+    end
+    #Find this id on this branch
+    res = repo.grep("_id => #{id}")
+    obj = {}
+    if res && res.first
+       path = res.first[0].split(":")
+       if path[1]
+       #Access this file version as a string
+        str = repo.object("#{version}:#{path[1]}").contents
+        str.split("\n").each do |line|
+          arr = line.split("=>")
+          obj[arr[0].strip] = arr[1].strip.gsub("[ln]", "\n")
+        end
+       end
+    end
+    obj
   end
   
   def self.delete(username, id)
@@ -120,7 +144,7 @@ class GitRecord
     
   end 
   
-  def self.save(username, attributes, pub)
+  def self.save(username, attributes, pub=false)
     #take this attribute hash and save it to disk
     #return the object
     #get repo
@@ -139,7 +163,7 @@ class GitRecord
     end
     
     branches << username
-  
+    ver = nil
     branches.each do |branch|
       #checkout branch
       repo.branch(branch).checkout
@@ -156,11 +180,17 @@ class GitRecord
       else
         #we didn't have a full object hash, no file was saved
         puts "File failed the attributes full check in GitRecord."
-        return false
+        return ver
       end
     end    
     
-    true
+    # File was saved, return it's commit sha
+    res = repo.grep("_id => #{attributes['_id']}")
+    if res && res.first
+       path = res.first[0].split(":")
+       ver = path[0] 
+    end
+    ver
   end
   
   def method_missing(method_symbol, *arguments)

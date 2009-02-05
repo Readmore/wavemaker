@@ -32,21 +32,22 @@ class Card < GitRecord
     end
   end
   
-  def self.find(username, id, pub=false)
-    c = Card.new(@username)
-    h = GitRecord.find(username, id, pub)
+  def self.find(username, id, version="HEAD")
+    c = Card.new(username)
+    h = GitRecord.find_by_version(username, id, version)
     if h.empty?
-      h = GitRecord.find("master", id, pub)
+      h = GitRecord.find_by_version("master", id, version)
     end
     c.attributes = h 
     c
   end
   
   def self.save(username, attrs, pub=false)
-    saved = GitRecord.save(username, attrs, pub)
-    if saved
+    commit = GitRecord.save(username, attrs, pub)
+    if commit
       c = Card.new(username)
       c.attributes = attrs
+      c.attributes["commit"] = commit
       c
     else
       nil

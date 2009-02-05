@@ -25,10 +25,10 @@ class CoursesController < ApplicationController
     # GET /courses/1
     # GET /courses/1.xml
     def show
-      if @user
+      branch = "master"
+
+      if @user && !params[:pub]
         branch = @user.login
-      else
-        branch = "master"
       end
 
       @course = Course.find(branch, params[:id])
@@ -36,7 +36,7 @@ class CoursesController < ApplicationController
         num = @course.lessons.length
         #parse course.post and find all lesson identifiers [fc:x] where x is the array index
         @identifiers = num.times.map {|x| "[fl:#{x}]"}
-        @lessons = @course.lessons.map { |lesson_id| Lesson.find(@user.login, lesson_id)}
+        @lessons = @course.lessons.map { |lesson_id| Lesson.find(branch, lesson_id)}
 
         #each time an identifier is found pull that lesson object from the array and insert 
           # the lesson information with a link to view it....

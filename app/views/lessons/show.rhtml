@@ -6,7 +6,7 @@
 
 </div>
 <%= link_to "Back", :action => :index %> | 
-<% if @user.login == @lesson.author %>
+<% if @user && @user.login == @lesson.author %>
 	<%= link_to "Edit", :action => :edit, :id => @lesson._id %> |
 	<%= link_to "Destroy", lesson_path(@lesson._id), :method => :delete %>
 <% end %>

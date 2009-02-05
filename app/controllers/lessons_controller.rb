@@ -24,20 +24,33 @@ class LessonsController < ApplicationController
 
   # GET /lessons/1
   # GET /lessons/1.xml
-  def show
-    
+  def show 
     branch = "master"
     
     if @user && !params[:pub]
       branch = @user.login
     end
     
-    @lesson = Lesson.find(branch, params[:id])
+    if params[:version]
+      @lesson = Lesson.find(branch, params[:id], params[:version])
+    else
+      @lesson = Lesson.find(branch, params[:id])
+    end
+    
     if @lesson 
       num = @lesson.cards.length
       #parse lesson.post and find and card identifiers [fc:x] where x is the array index
       @identifiers = num.times.map {|x| "[fc:#{x}]"}
-      @cards = @lesson.cards.map { |card_id| Card.find(branch, card_id)}
+      @cards = @lesson.cards.map do |card_id| 
+        #determine if there are any versions stored with these card_ids
+        version = "HEAD"
+        res = card_id.split(":")
+        if res[1] 
+          version = res[0]
+          card_id = res[1]
+        end
+        Card.find(branch, card_id, version)
+      end
     
       #each time an identifier is found pull that card object from the array and insert 
         # the correct html for the card....
