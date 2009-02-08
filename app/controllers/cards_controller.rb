@@ -7,7 +7,7 @@ class CardsController < ApplicationController
   def index
     #@posts = post.find(database_name, )
     if @user
-      @cards = Card.view(@user.login, "cards_by_author", {:author => "brandon"})
+      @cards = Card.view(@user.login, "cards_by_author", {:author => "@user.login"})
     else
       @cards = []
     end
@@ -45,7 +45,7 @@ class CardsController < ApplicationController
   # GET /cards/new
   # GET /cards/new.xml
   def new
-    if @user
+    if @user && @user.role != "student"
       @card = Card.new(@user.login)
     else
       @card = nil
@@ -58,7 +58,7 @@ class CardsController < ApplicationController
 
   # GET /cards/1/edit
   def edit
-    if @user
+    if @user && @user.role != "student"
       @card = Card.find(@user.login, params[:id])
     else
       @card = nil
@@ -69,7 +69,7 @@ class CardsController < ApplicationController
   # POST /cards
   # POST /card.xml
   def create
-    if @user
+    if @user && @user.role != "student"
       pub = false
       if params[:card][:public] == "1"
         pub = true
@@ -87,7 +87,7 @@ class CardsController < ApplicationController
   # PUT /cards/1
   # PUT /cards/1.xml
   def update
-    if @user
+    if @user && @user.role != "student"
       @card = Card.find(@user.login, params[:id])
       pub = false
       if params[:public] == "1"

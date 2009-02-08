@@ -61,12 +61,13 @@ class Course < GitRecord
     # this will allow for direct versioning and allow published lessons and courses to have static content
     if pub
       # make public lessons for all public courses
-        Course.set_lessons_public(username, attributes["lessons"].split(",").each {|str| str.strip!})
+       attributes["lessons"] = Course.set_lessons_public(username, attributes["lessons"].split(",").each {|str| str.strip!})
     end
     saved = GitRecord.save(username, attributes, pub)
     if saved
       l = Course.new(username)
       l.attributes = attributes
+      l.attributes["commit"] = saved
       l
     else
       nil

@@ -3,10 +3,6 @@ class SessionsController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
   layout "default"
-
-  def dashboard
-    
-  end
   
   # render new.rhtml
   def new
@@ -23,7 +19,7 @@ class SessionsController < ApplicationController
       # the latest public data
       # GitRecord.update_branch(current_user.login)
       
-      redirect_back_or_default('/')
+      redirect_back_or_default(:controller => "home", :action => "dashboard")
       flash[:notice] = "Logged in successfully"
     else
       render :action => 'new'
@@ -37,4 +33,5 @@ class SessionsController < ApplicationController
     flash[:notice] = "You have been logged out."
     redirect_back_or_default('/')
   end
+  
 end

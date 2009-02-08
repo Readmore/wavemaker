@@ -36,7 +36,23 @@ class CoursesController < ApplicationController
         num = @course.lessons.length
         #parse course.post and find all lesson identifiers [fc:x] where x is the array index
         @identifiers = num.times.map {|x| "[fl:#{x}]"}
-        @lessons = @course.lessons.map { |lesson_id| Lesson.find(branch, lesson_id)}
+        #@lessons = @course.lessons.map { |lesson_id| Lesson.find(branch, lesson_id)}
+
+         @lessons = @course.lessons.map do |lesson_id| 
+            #determine if there are any versions stored with these card_ids
+            version = "HEAD"
+            res = lesson_id.split(":")
+            if res[1] 
+              version = res[0]
+              lesson_id = res[1]
+            end
+            if params[:pub]
+              Lesson.find(branch, lesson_id, version, true)
+            else
+              Lesson.find(branch, lesson_id)
+            end
+          end
+
 
         #each time an identifier is found pull that lesson object from the array and insert 
           # the lesson information with a link to view it....

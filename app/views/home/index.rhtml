@@ -1,0 +1,33 @@
+<table cellspacing="10" cellpadding="10">
+	<tr>
+		<td>
+			<div id="welcome_div">
+				This is the intro text check it out... 
+					I needed extra words in here so that it would span multiple lines so I could see if it
+					was placing it correctly
+			</div>
+		</td>
+		<td width="5%">
+		</td>
+		<td>
+			<div id="login_form">
+				<% form_tag session_path do -%>
+				<p><label for="login">Login</label><br/>
+				<%= text_field_tag 'login' %></p>
+
+				<p><label for="password">Password</label><br/>
+				<%= password_field_tag 'password' %></p>
+
+				<!-- Uncomment this if you want this functionality
+				<p><label for="remember_me">Remember me:</label>
+				<%= check_box_tag 'remember_me' %></p>
+				-->
+
+				<p><%= submit_tag 'Log in' %></p>
+				<% end -%>
+
+			</div>
+		</td>
+	</tr>
+</table>
+

@@ -32,11 +32,11 @@ class Card < GitRecord
     end
   end
   
-  def self.find(username, id, version="HEAD")
+  def self.find(username, id, version="HEAD", pub=false)
     c = Card.new(username)
-    h = GitRecord.find_by_version(username, id, version)
+    h = GitRecord.find_by_version(username, id, version, pub)
     if h.empty?
-      h = GitRecord.find_by_version("master", id, version)
+      h = GitRecord.find_by_version("master", id, version, pub)
     end
     c.attributes = h 
     c

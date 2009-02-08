@@ -11,6 +11,17 @@ body {}
 	text-align:left;
 }
 
+#welcome_div{
+	width:600px;
+	float:left;
+}
+
+#login_form {
+	width:200px;
+
+	
+}
+
 .card_note_display{
 	padding:8px;
 	border:1px solid;

@@ -5,7 +5,7 @@
 	<%= @lesson.post %>
 
 </div>
-<%= link_to "Back", :action => :index %> | 
+<%= link_to "Dashboard", :controller => "home", :action => "dashboard" %> | 
 <% if @user && @user.login == @lesson.author %>
 	<%= link_to "Edit", :action => :edit, :id => @lesson._id %> |
 	<%= link_to "Destroy", lesson_path(@lesson._id), :method => :delete %>

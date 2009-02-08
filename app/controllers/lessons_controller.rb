@@ -37,7 +37,7 @@ class LessonsController < ApplicationController
       @lesson = Lesson.find(branch, params[:id])
     end
     
-    if @lesson 
+    if !@lesson.attributes.empty? 
       num = @lesson.cards.length
       #parse lesson.post and find and card identifiers [fc:x] where x is the array index
       @identifiers = num.times.map {|x| "[fc:#{x}]"}
@@ -49,7 +49,11 @@ class LessonsController < ApplicationController
           version = res[0]
           card_id = res[1]
         end
-        Card.find(branch, card_id, version)
+        if params[:pub]
+          Card.find(branch, card_id, version, true)
+        else
+          Card.find(branch, card_id)
+        end
       end
     
       #each time an identifier is found pull that card object from the array and insert 
@@ -168,7 +172,7 @@ class LessonsController < ApplicationController
     #case card.card_type
     #when "Video"
       if card.card_type
-        render_to_string :partial => "display_#{card.card_type.downcase}_card", :locals => {:c => card}
+        render_to_string :partial => "display_note_card", :locals => {:c => card}
       end
     #else
     #  render_to_string :partial => "display_card", :locals => {:c => card}

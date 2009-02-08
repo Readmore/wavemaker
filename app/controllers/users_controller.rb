@@ -1,9 +1,18 @@
 class UsersController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
   include AuthenticatedSystem
+  layout "default"
 
+  def show
+    
+  end
+  
   # render new.rhtml
   def new
+    @user = User.find_by_id(session[:user_id])
+    if @user && @user.role == "admin"
+      @render = true
+    end
   end
 
   def create

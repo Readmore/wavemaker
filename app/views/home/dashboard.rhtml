@@ -1,0 +1,79 @@
+<div id="user_dash" align="left">
+	<% if @user %>
+	<h3>
+		Dashboard for: <%= @user.login %>
+	</h3>
+	<div id="my_recent_data">
+		<p>My Data
+			<table cellpadding="6">
+				<tr>
+					<td valign="top">
+						Cards<br/>
+						<% if @user %>
+							<%= link_to "New Card", :controller => "cards", :action => :new %><br/>
+						<% end %>
+						<ul>
+							<% @my_cards.each do |card| %>
+							<li> <%= link_to card["title"], :controller => "cards", :action => :show, :id => card["_id"] %> </li>	
+							<% end %>
+						</ul>
+					</td>
+					<td valign="top">
+						Lessons<br/>
+						<% if @user %>
+							<%= link_to "New Lesson", :controller => "lessons", :action => :new %><br/>
+						<% end %>
+						<ul>
+							<% @my_lessons.each do |lesson| %>
+							<li> <%= link_to lesson["title"], :controller => "lessons", :action => :show, :id => lesson["_id"] %> </li>	
+							<% end %>
+						</ul>
+					</td>
+					<td valign="top">
+						Courses<br/>
+						<% if @user %>
+							<%= link_to "New Course", :controller => "course", :action => :new %><br/>
+						<% end %>
+						<ul>
+							<% @my_courses.each do |course| %>
+								<li> <%= link_to course["title"], :controller => "courses", :action => :show, :id => course["_id"] %></li>
+							<% end %>
+					</td>
+				</tr>
+			</table>
+		<hr/>
+		</p>
+	</div>
+	<% end %>
+	<div id="public_recent_data">	
+	Public Data
+		<table cellpadding="6">
+			<tr>
+				<td valign="top">
+					Cards<br/>
+					<ul>
+						<% @public_cards.each do |card| %>
+							<li><%= link_to card["title"], :controller => "cards", :action => :show, :id => card["_id"], :pub => "1" %> </li>	
+						<% end %>
+					</ul>
+				</td>
+				<td valign="top">
+					Lessons<br/>
+					<ul>
+						<% @public_lessons.each do |lesson| %>
+							<li><%= link_to lesson["title"], :controller => "lessons", :action => :show, :id => lesson["_id"], :pub => "1" %></li>
+						<% end %>
+					</ul>
+				</td>
+				<td valign="top">
+					Courses<br/>
+					<ul>
+						<% @public_courses.each do |course| %>
+							<li><%= link_to course["title"], :controller => "courses", :action => :show, :id => course["_id"], :pub => "1" %></li>
+						<% end %>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

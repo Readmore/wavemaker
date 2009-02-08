@@ -95,6 +95,10 @@ class GitRecord
           arr = line.split("=>")
           obj[arr[0].strip] = arr[1].strip.gsub("[ln]", "\n")
         end
+        obj["version"] = version
+        if pub
+          obj["pub"] = 1
+        end
        end
     end
     obj
@@ -149,10 +153,10 @@ class GitRecord
     #return the object
     #get repo
     #update rev section so every update will create a commit, even if there is no change.
-    if attributes[:_rev]
-      attributes[:_rev] = (attributes[:_rev].to_i + 1).to_s
+    if attributes["_rev"]
+      attributes["_rev"] = (attributes["_rev"].to_i + 1).to_s
     else
-      attributes[:_rev] = "0"
+      attributes["_rev"] = "0"
     end
     
     repo = self.repo(self.repo_name) #@repo_name)
@@ -248,14 +252,23 @@ class GitRecord
 
 
   ##### Git View Section ####
+  
+  ### TO DO - RE-WRITE Ruby-Git Grep support so you can pass it this
+  ### git grep --all-match -e "card_type => Note" -e "type => Card" --name-only
+  
+  ### Check Latest on GitHub to make sure this isn't already there
+  
+  
   # Each View will be it's own function that wraps git grep and returns an array of values
   def self.cards_by_author(repo, params)
     #expect params["author"]
-    res = repo.grep("author => #{params['author']}")
+    res = repo.grep("author => " + params[:author])
     out = {}
-    res.each_key do |key, val|
-      if key.include?("Cards")
-        out[key] = val
+    if res.is_a?(Hash)
+      res.each_key do |key, val|
+        if key.include?("Cards")
+          out[key] = val
+        end
       end
     end
     out
@@ -263,7 +276,7 @@ class GitRecord
   
   def self.by_type(repo, params)
     #expect params["type"]
-    repo.grep("type => #{params['type']}")
+    repo.grep("type => " + params[:type])
   end
   
   def self.cards_by_public(repo, params)
@@ -293,7 +306,7 @@ class GitRecord
   
   def self.lessons_by_author(repo, params)
     #pull all courses by this author in repo
-    res = repo.grep("author => #{params['author']}")
+    res = repo.grep("author => " + params[:author])
     out = {}
     res.each_pair do |key, val|
       if key.include?("Lessons")
@@ -318,7 +331,7 @@ class GitRecord
   
   def self.courses_by_author(repo, params)
     #pull all courses by this author in repo
-    res = repo.grep("author => #{params['author']}")
+    res = repo.grep("author => " + params[:author])
     out = {}
     res.each_pair do |key, val|
       if key.include?("Courses")

@@ -6,7 +6,7 @@
 	<%= @course.post %>
 
 </div>
-<%= link_to "Back", :action => :index %> | 
+<%= link_to "Dashboard", :controller => "home", :action => "dashboard" %> |
 <% if @user && @user.login == @course.author %>
 	<%= link_to "Edit", :action => :edit, :id => @course._id %> |
 	<%= link_to "Destroy", course_path(@course._id), :method => :delete %>

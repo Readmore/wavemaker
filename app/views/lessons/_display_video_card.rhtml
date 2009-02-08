@@ -1,4 +1,4 @@
-<h4><%= c.title %></h4>
+<h4><%= link_to c.title, :controller => "cards", :action => "show", :id => c._id, :pub => "1", :version => c.version %></h4>
 <div id="video-<%= c.id %>-container">
 <embed src="http://localhost:3000/<%= c.post %>"
 href="http://localhost:3000/<%= c.post %>"
