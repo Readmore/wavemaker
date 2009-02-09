@@ -41461,3 +41461,1269 @@ Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-08 18:33:49) [GET]
 Rendering template within layouts/default
 Rendering home/dashboard
 Completed in 567ms (View: 15, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-09 01:42:38) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/index
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-02-09 01:42:43) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"f49d3fcdf41c9c25478bc8a4474477fc144e6016", "login"=>"brandon", "password"=>"gueto1"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'brandon') LIMIT 1[0m
+Redirected to actiondashboardcontrollerhome
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 01:42:43) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+
+Git::GitExecuteError (/opt/local/lib/ruby/gems/1.8/gems/git-1.0.5/lib/git/lib.rb:624:in `command': git cat-file -t HEAD:fatal: Not a valid object name HEAD):
+    /app/models/git_record.rb:140:in `view'
+    /opt/local/lib/ruby/gems/1.8/gems/git-1.0.5/lib/git/lib.rb:111:in `object_type'
+    /opt/local/lib/ruby/gems/1.8/gems/git-1.0.5/lib/git/object.rb:273:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/git-1.0.5/lib/git/base.rb:166:in `object'
+    /opt/local/lib/ruby/gems/1.8/gems/git-1.0.5/lib/git/base.rb:233:in `grep'
+    /app/models/git_record.rb:340:in `courses_by_author'
+    (eval):1:in `view'
+    /app/controllers/home_controller.rb:12:in `eval'
+    /app/models/git_record.rb:140:in `view'
+    /app/controllers/home_controller.rb:12:in `dashboard'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:54:in `serve_rails'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:74:in `call'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:63:in `pre_process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:54:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:39:in `receive_data'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.2/lib/eventmachine.rb:231:in `run_machine'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.2/lib/eventmachine.rb:231:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/backends/base.rb:57:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/server.rb:150:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/controllers/controller.rb:80:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `run_command'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:139:in `run!'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/thin.rb:20
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (36.1ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (2.0ms)
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-09 01:51:29) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/index
+Completed in 16ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-02-09 01:51:34) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"f49d3fcdf41c9c25478bc8a4474477fc144e6016", "login"=>"brandon", "password"=>"gueto1"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'brandon') LIMIT 1[0m
+Redirected to actiondashboardcontrollerhome
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 01:51:34) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+
+NoMethodError (undefined method `new_file' for Course:Class):
+    /app/models/git_record.rb:23:in `repo'
+    /opt/local/lib/ruby/gems/1.8/gems/git-1.0.5/lib/git/base.rb:125:in `chdir'
+    /opt/local/lib/ruby/gems/1.8/gems/git-1.0.5/lib/git/base.rb:124:in `chdir'
+    /app/models/git_record.rb:22:in `repo'
+    /app/models/git_record.rb:138:in `view'
+    /app/controllers/home_controller.rb:12:in `dashboard'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:54:in `serve_rails'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:74:in `call'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:63:in `pre_process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:54:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:39:in `receive_data'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.2/lib/eventmachine.rb:231:in `run_machine'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.2/lib/eventmachine.rb:231:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/backends/base.rb:57:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/server.rb:150:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/controllers/controller.rb:80:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `run_command'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:139:in `run!'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/thin.rb:20
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (41.5ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.8ms)
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-09 01:53:02) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/index
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-02-09 01:53:22) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"f49d3fcdf41c9c25478bc8a4474477fc144e6016", "login"=>"brandon", "password"=>"gueto1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'brandon') LIMIT 1[0m
+Redirected to actiondashboardcontrollerhome
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 01:53:22) [GET]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 297ms (View: 9, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CardsController#new (for 127.0.0.1 at 2009-02-09 01:54:26) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/new
+Rendered cards/_form (3.6ms)
+Completed in 59ms (View: 42, DB: 0) | 200 OK [http://localhost/cards/new]
+
+
+Processing CardsController#create (for 127.0.0.1 at 2009-02-09 01:55:21) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"f49d3fcdf41c9c25478bc8a4474477fc144e6016", "card"=>{"created_at"=>"2009/02/09", "_rev"=>"0", "author"=>"brandon", "public"=>"0", "post"=>"images/iphone-pic.jpg", "title"=>"iPhone Touch Keyboard", "card_type"=>"Image", "_id"=>"cb9cfdd0-d8ac-012b-7986-002332ced2f8", "tags"=>"iphone, keyboard", "type"=>"Card"}, "id"=>{"cb9cfdd0-d8ac-012b-7986-002332ced2f8"=>""}}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+
+ArgumentError (wrong number of arguments (0 for 1)):
+    /app/models/git_record.rb:200:in `repo'
+    /app/models/git_record.rb:200:in `save'
+    /app/models/card.rb:71:in `save'
+    /app/controllers/cards_controller.rb:79:in `create'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:54:in `serve_rails'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:74:in `call'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:63:in `pre_process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:54:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:39:in `receive_data'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.2/lib/eventmachine.rb:231:in `run_machine'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.2/lib/eventmachine.rb:231:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/backends/base.rb:57:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/server.rb:150:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/controllers/controller.rb:80:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `run_command'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:139:in `run!'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/thin.rb:20
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (123.3ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.2ms)
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing CardsController#index (for 127.0.0.1 at 2009-02-09 01:58:47) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/index
+Completed in 97ms (View: 17, DB: 0) | 200 OK [http://localhost/cards]
+
+
+Processing CardsController#new (for 127.0.0.1 at 2009-02-09 02:00:47) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/new
+Rendered cards/_form (2.9ms)
+Completed in 25ms (View: 8, DB: 0) | 200 OK [http://localhost/cards/new]
+
+
+Processing CardsController#create (for 127.0.0.1 at 2009-02-09 02:01:18) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"f49d3fcdf41c9c25478bc8a4474477fc144e6016", "card"=>{"created_at"=>"2009/02/09", "_rev"=>"0", "author"=>"brandon", "public"=>"0", "post"=>"images/iphone-pic.jpg", "title"=>"iPhone Touch Keyboard", "card_type"=>"Image", "_id"=>"aefb7410-d8ad-012b-7989-002332ced2f8", "tags"=>"iphone, keyboard", "type"=>"Card"}, "id"=>{"aefb7410-d8ad-012b-7989-002332ced2f8"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/cards/aefb7410-d8ad-012b-7989-002332ced2f8
+Completed in 83ms (DB: 0) | 302 Found [http://localhost/cards]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:01:18) [GET]
+  Parameters: {"id"=>"aefb7410-d8ad-012b-7989-002332ced2f8"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.4ms)
+Completed in 189ms (View: 15, DB: 0) | 200 OK [http://localhost/cards/aefb7410-d8ad-012b-7989-002332ced2f8]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-02-09 02:01:18) [GET]
+
+
+ActionController::RoutingError (No route matches "/images/images/iphone-pic.jpg" with {:method=>:get}):
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:386:in `recognize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:54:in `serve_rails'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:74:in `call'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:63:in `pre_process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:54:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:39:in `receive_data'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.2/lib/eventmachine.rb:231:in `run_machine'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.2/lib/eventmachine.rb:231:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/backends/base.rb:57:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/server.rb:150:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/controllers/controller.rb:80:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `run_command'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:139:in `run!'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/thin.rb:20
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing CardsController#edit (for 127.0.0.1 at 2009-02-09 02:01:22) [GET]
+  Parameters: {"id"=>"aefb7410-d8ad-012b-7989-002332ced2f8"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/edit
+Rendered cards/_form (3.7ms)
+Completed in 104ms (View: 32, DB: 0) | 200 OK [http://localhost/cards/aefb7410-d8ad-012b-7989-002332ced2f8/edit]
+
+
+Processing CardsController#create (for 127.0.0.1 at 2009-02-09 02:01:27) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"f49d3fcdf41c9c25478bc8a4474477fc144e6016", "card"=>{"created_at"=>"2009/02/09", "_rev"=>"1", "author"=>"brandon", "public"=>"0", "post"=>"/images/iphone-pic.jpg", "title"=>"iPhone Touch Keyboard", "card_type"=>"Image", "_id"=>"aefb7410-d8ad-012b-7989-002332ced2f8", "tags"=>"iphone, keyboard", "type"=>"Card"}, "id"=>{"aefb7410-d8ad-012b-7989-002332ced2f8"=>""}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/cards/aefb7410-d8ad-012b-7989-002332ced2f8
+Completed in 85ms (DB: 0) | 302 Found [http://localhost/cards]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:01:27) [GET]
+  Parameters: {"id"=>"aefb7410-d8ad-012b-7989-002332ced2f8"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.2ms)
+Completed in 83ms (View: 9, DB: 0) | 200 OK [http://localhost/cards/aefb7410-d8ad-012b-7989-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:01:33) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+
+
+Errno::ENOENT (No such file or directory - /Users/bpollet/Sites/wavemaker/db/data/Cards/aefb7410-d8ad-012b-7989-002332ced2f8):
+    /app/models/git_record.rb:250:in `initialize'
+    /app/models/git_record.rb:250:in `open'
+    /app/models/git_record.rb:250:in `read_hash'
+    /app/models/git_record.rb:150:in `view'
+    /app/models/git_record.rb:147:in `each_key'
+    /app/models/git_record.rb:147:in `view'
+    /app/controllers/home_controller.rb:14:in `dashboard'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:54:in `serve_rails'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:74:in `call'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:63:in `pre_process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:54:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:39:in `receive_data'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.2/lib/eventmachine.rb:231:in `run_machine'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.2/lib/eventmachine.rb:231:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/backends/base.rb:57:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/server.rb:150:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/controllers/controller.rb:80:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `run_command'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:139:in `run!'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/thin.rb:20
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (42.4ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (2.0ms)
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:02:48) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 235ms (View: 12, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:02:53) [GET]
+  Parameters: {"id"=>"aefb7410-d8ad-012b-7989-002332ced2f8"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.2ms)
+Completed in 81ms (View: 9, DB: 0) | 200 OK [http://localhost/cards/aefb7410-d8ad-012b-7989-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:02:55) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 347ms (View: 15, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CardsController#new (for 127.0.0.1 at 2009-02-09 02:03:44) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/new
+Rendered cards/_form (3.5ms)
+Completed in 27ms (View: 8, DB: 0) | 200 OK [http://localhost/cards/new]
+
+
+Processing CardsController#create (for 127.0.0.1 at 2009-02-09 02:04:01) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"f49d3fcdf41c9c25478bc8a4474477fc144e6016", "card"=>{"created_at"=>"2009/02/09", "_rev"=>"0", "author"=>"brandon", "public"=>"0", "post"=>"<a title=\"View iPhone in Action on Scribd\" href=\"http://www.scribd.com/doc/11446752/iPhone-in-Action\" style=\"margin: 12px auto 6px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block; text-decoration: underline;\">iPhone in Action</a> <object codebase=\"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0\" id=\"doc_926582440282341\" name=\"doc_926582440282341\" classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\" align=\"middle\"\theight=\"500\" width=\"100%\">\t\t<param name=\"movie\"\tvalue=\"http://d.scribd.com/ScribdViewer.swf?document_id=11446752&access_key=key-3luo8r766yd1x9qxfh2&page=1&version=1&viewMode=book\"> \t\t<param name=\"quality\" value=\"high\"> \t\t<param name=\"play\" value=\"true\">\t\t<param name=\"loop\" value=\"true\"> \t\t<param name=\"scale\" value=\"showall\">\t\t<param name=\"wmode\" value=\"opaque\"> \t\t<param name=\"devicefont\" value=\"false\">\t\t<param name=\"bgcolor\" value=\"#ffffff\"> \t\t<param name=\"menu\" value=\"true\">\t\t<param name=\"allowFullScreen\" value=\"true\"> \t\t<param name=\"allowScriptAccess\" value=\"always\"> \t\t<param name=\"salign\" value=\"\">    \t\t\t    \t<param name=\"mode\" value=\"book\">\t    \t\t<embed src=\"http://d.scribd.com/ScribdViewer.swf?document_id=11446752&access_key=key-3luo8r766yd1x9qxfh2&page=1&version=1&viewMode=book\" quality=\"high\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" play=\"true\" loop=\"true\" scale=\"showall\" wmode=\"opaque\" devicefont=\"false\" bgcolor=\"#ffffff\" name=\"doc_926582440282341_object\" menu=\"true\" allowfullscreen=\"true\" allowscriptaccess=\"always\" salign=\"\" type=\"application/x-shockwave-flash\" align=\"middle\" mode=\"book\" height=\"500\" width=\"100%\"></embed>\t</object>\t<div style=\"margin: 6px auto 3px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block;\">    <a href=\"http://www.scribd.com/upload\" style=\"text-decoration: underline;\">Publish at Scribd</a> or <a href=\"http://www.scribd.com/browse\" style=\"text-decoration: underline;\">explore</a> others:            <a href=\"http://www.scribd.com/browse/eBooks/Internet-Technology?style=text-decoration%3A+underline%3B\">Internet & Technolog</a>              <a href=\"http://www.scribd.com/browse/eBooks/?style=text-decoration%3A+underline%3B\">eBooks</a>                  <a href=\"http://www.scribd.com/tag/iphone\" style=\"text-decoration: underline;\">iphone</a>              <a href=\"http://www.scribd.com/tag/objectivec\" style=\"text-decoration: underline;\">objectivec</a>      \t</div>\t", "title"=>"iPhone in Action", "card_type"=>"Embed", "_id"=>"188caac0-d8ae-012b-7994-002332ced2f8", "tags"=>"iphone, online book", "type"=>"Card"}, "id"=>{"188caac0-d8ae-012b-7994-002332ced2f8"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/cards/188caac0-d8ae-012b-7994-002332ced2f8
+Completed in 78ms (DB: 0) | 302 Found [http://localhost/cards]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:04:01) [GET]
+  Parameters: {"id"=>"188caac0-d8ae-012b-7994-002332ced2f8"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.2ms)
+Completed in 84ms (View: 10, DB: 0) | 200 OK [http://localhost/cards/188caac0-d8ae-012b-7994-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:04:07) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 244ms (View: 10, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CardsController#new (for 127.0.0.1 at 2009-02-09 02:21:42) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/new
+Rendered cards/_form (2.7ms)
+Completed in 24ms (View: 8, DB: 0) | 200 OK [http://localhost/cards/new]
+
+
+Processing CardsController#create (for 127.0.0.1 at 2009-02-09 02:22:00) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"f49d3fcdf41c9c25478bc8a4474477fc144e6016", "card"=>{"created_at"=>"2009/02/09", "_rev"=>"0", "author"=>"brandon", "public"=>"1", "post"=>"This is the first in a multipart series where I will be teaching you to create an iPhone game from the ground up.  As many of you know, OpenGL and Quartz have quite a steep learning curve.  This tutorial will simplify the development process and not use either one of those technologies.  For our graphics,", "title"=>"iPhone Game Programming Tutorial", "card_type"=>"Note", "_id"=>"9abe3f60-d8b0-012b-7998-002332ced2f8", "tags"=>"iphone, Games", "type"=>"Card"}, "id"=>{"9abe3f60-d8b0-012b-7998-002332ced2f8"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/cards/9abe3f60-d8b0-012b-7998-002332ced2f8
+Completed in 156ms (DB: 0) | 302 Found [http://localhost/cards]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:22:00) [GET]
+  Parameters: {"id"=>"9abe3f60-d8b0-012b-7998-002332ced2f8"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.2ms)
+Completed in 84ms (View: 8, DB: 0) | 200 OK [http://localhost/cards/9abe3f60-d8b0-012b-7998-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:22:02) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 248ms (View: 10, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing LessonsController#new (for 127.0.0.1 at 2009-02-09 02:22:44) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering lessons/new
+Rendered lessons/_form (3.3ms)
+Completed in 39ms (View: 24, DB: 0) | 200 OK [http://localhost/lessons/new]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:24:54) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 239ms (View: 10, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:24:57) [GET]
+  Parameters: {"id"=>"188caac0-d8ae-012b-7994-002332ced2f8"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.2ms)
+Completed in 81ms (View: 9, DB: 0) | 200 OK [http://localhost/cards/188caac0-d8ae-012b-7994-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:25:08) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 242ms (View: 9, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:25:09) [GET]
+  Parameters: {"id"=>"9abe3f60-d8b0-012b-7998-002332ced2f8"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.2ms)
+Completed in 88ms (View: 9, DB: 0) | 200 OK [http://localhost/cards/9abe3f60-d8b0-012b-7998-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:25:21) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 239ms (View: 11, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:25:23) [GET]
+  Parameters: {"id"=>"aefb7410-d8ad-012b-7989-002332ced2f8"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.2ms)
+Completed in 88ms (View: 9, DB: 0) | 200 OK [http://localhost/cards/aefb7410-d8ad-012b-7989-002332ced2f8]
+
+
+Processing LessonsController#create (for 127.0.0.1 at 2009-02-09 02:25:32) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"f49d3fcdf41c9c25478bc8a4474477fc144e6016", "lesson"=>{"created_at"=>"2009/02/09", "_rev"=>"0", "author"=>"brandon", "public"=>"1", "post"=>"This is a sample Lesson that lists different iPhone Resources.\r\n\r\n<p>First we have a full book on iPhone programming, iPhone in Action.</p>\r\n\r\n<p>\r\n[fc:0]\r\n</p>\r\n\r\n<p>Next we have an iPhone Game Programming Tutorial.</p>\r\n\r\n[fc:1]\r\n\r\n<p> Finally we have an image of the iPhone on-screen keyboard </p>\r\n\r\n[fc:2]", "title"=>"iPhone Resources", "card_type"=>"Lecture", "cards"=>"188caac0-d8ae-012b-7994-002332ced2f8,9abe3f60-d8b0-012b-7998-002332ced2f8,aefb7410-d8ad-012b-7989-002332ced2f8", "_id"=>"c0420dc0-d8b0-012b-799c-002332ced2f8", "tags"=>"iphone, programming, games", "type"=>"Lesson"}, "id"=>{"c0420dc0-d8b0-012b-799c-002332ced2f8"=>""}}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/lessons/c0420dc0-d8b0-012b-799c-002332ced2f8
+Completed in 695ms (DB: 0) | 302 Found [http://localhost/lessons]
+
+
+Processing LessonsController#show (for 127.0.0.1 at 2009-02-09 02:25:33) [GET]
+  Parameters: {"id"=>"c0420dc0-d8b0-012b-799c-002332ced2f8"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_show_tags (0.3ms)
+Rendered lessons/_display_note_card (4.8ms)
+Rendered layouts/_show_tags (0.3ms)
+Rendered lessons/_display_note_card (2.6ms)
+Rendered layouts/_show_tags (0.3ms)
+Rendered lessons/_display_note_card (1.9ms)
+Rendering template within layouts/default
+Rendering lessons/show
+Completed in 313ms (View: 8, DB: 0) | 200 OK [http://localhost/lessons/c0420dc0-d8b0-012b-799c-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:25:41) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 243ms (View: 11, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CardsController#new (for 127.0.0.1 at 2009-02-09 02:26:57) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/new
+Rendered cards/_form (2.6ms)
+Completed in 24ms (View: 7, DB: 0) | 200 OK [http://localhost/cards/new]
+
+
+Processing CardsController#create (for 127.0.0.1 at 2009-02-09 02:27:26) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"f49d3fcdf41c9c25478bc8a4474477fc144e6016", "card"=>{"created_at"=>"2009/02/09", "_rev"=>"0", "author"=>"brandon", "public"=>"1", "post"=>"/images/android_sdk.jpg", "title"=>"Android SDK", "card_type"=>"Image", "_id"=>"56826fa0-d8b1-012b-79a6-002332ced2f8", "tags"=>"Android, programming, SDK", "type"=>"Card"}, "id"=>{"56826fa0-d8b1-012b-79a6-002332ced2f8"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/cards/56826fa0-d8b1-012b-79a6-002332ced2f8
+Completed in 147ms (DB: 0) | 302 Found [http://localhost/cards]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:27:27) [GET]
+  Parameters: {"id"=>"56826fa0-d8b1-012b-79a6-002332ced2f8"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.3ms)
+Completed in 89ms (View: 10, DB: 0) | 200 OK [http://localhost/cards/56826fa0-d8b1-012b-79a6-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:27:38) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 394ms (View: 10, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CardsController#new (for 127.0.0.1 at 2009-02-09 02:28:54) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/new
+Rendered cards/_form (3.1ms)
+Completed in 26ms (View: 8, DB: 0) | 200 OK [http://localhost/cards/new]
+
+
+Processing CardsController#create (for 127.0.0.1 at 2009-02-09 02:29:21) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"f49d3fcdf41c9c25478bc8a4474477fc144e6016", "card"=>{"created_at"=>"2009/02/09", "_rev"=>"0", "author"=>"brandon", "public"=>"0", "post"=>"<a title=\"View Google Android - A developer's perspective on Scribd\" href=\"http://www.scribd.com/doc/4446529/Google-Android-A-developers-perspective\" style=\"margin: 12px auto 6px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block; text-decoration: underline;\">Google Android - A developer's perspective</a> <object codebase=\"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0\" id=\"doc_335587025824083\" name=\"doc_335587025824083\" classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\" align=\"middle\"\theight=\"500\" width=\"100%\">\t\t<param name=\"movie\"\tvalue=\"http://d.scribd.com/ScribdViewer.swf?document_id=4446529&access_key=key-1bw212ge5d092uom2n3t&page=1&version=1&viewMode=slideshow\"> \t\t<param name=\"quality\" value=\"high\"> \t\t<param name=\"play\" value=\"true\">\t\t<param name=\"loop\" value=\"true\"> \t\t<param name=\"scale\" value=\"showall\">\t\t<param name=\"wmode\" value=\"opaque\"> \t\t<param name=\"devicefont\" value=\"false\">\t\t<param name=\"bgcolor\" value=\"#ffffff\"> \t\t<param name=\"menu\" value=\"true\">\t\t<param name=\"allowFullScreen\" value=\"true\"> \t\t<param name=\"allowScriptAccess\" value=\"always\"> \t\t<param name=\"salign\" value=\"\">    \t\t\t    \t<param name=\"mode\" value=\"slideshow\">\t    \t\t<embed src=\"http://d.scribd.com/ScribdViewer.swf?document_id=4446529&access_key=key-1bw212ge5d092uom2n3t&page=1&version=1&viewMode=slideshow\" quality=\"high\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" play=\"true\" loop=\"true\" scale=\"showall\" wmode=\"opaque\" devicefont=\"false\" bgcolor=\"#ffffff\" name=\"doc_335587025824083_object\" menu=\"true\" allowfullscreen=\"true\" allowscriptaccess=\"always\" salign=\"\" type=\"application/x-shockwave-flash\" align=\"middle\" mode=\"slideshow\" height=\"500\" width=\"100%\"></embed>\t</object>\t<div style=\"margin: 6px auto 3px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block;\">    <a href=\"http://www.scribd.com/upload\" style=\"text-decoration: underline;\">Publish at Scribd</a> or <a href=\"http://www.scribd.com/browse\" style=\"text-decoration: underline;\">explore</a> others:            <a href=\"http://www.scribd.com/browse/Presentations-Slideshows/Internet-Technology?style=text-decoration%3A+underline%3B\">Internet & Technolog</a>              <a href=\"http://www.scribd.com/browse/Presentations-Slideshows/?style=text-decoration%3A+underline%3B\">Presentations & Slid</a>                  <a href=\"http://www.scribd.com/tag/2008\" style=\"text-decoration: underline;\">2008</a>              <a href=\"http://www.scribd.com/tag/BarCamp\" style=\"text-decoration: underline;\">BarCamp</a>      \t</div>\t", "title"=>"Google Android - A Developer's Perspective", "card_type"=>"Embed", "_id"=>"9c9cd160-d8b1-012b-79aa-002332ced2f8", "tags"=>"Google, Android, Book", "type"=>"Card"}, "id"=>{"9c9cd160-d8b1-012b-79aa-002332ced2f8"=>""}}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/cards/9c9cd160-d8b1-012b-79aa-002332ced2f8
+Completed in 80ms (DB: 0) | 302 Found [http://localhost/cards]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:29:21) [GET]
+  Parameters: {"id"=>"9c9cd160-d8b1-012b-79aa-002332ced2f8"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.3ms)
+Completed in 97ms (View: 11, DB: 0) | 200 OK [http://localhost/cards/9c9cd160-d8b1-012b-79aa-002332ced2f8]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:29:29) [GET]
+  Parameters: {"id"=>"9c9cd160-d8b1-012b-79aa-002332ced2f8"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.3ms)
+Completed in 84ms (View: 10, DB: 0) | 200 OK [http://localhost/cards/9c9cd160-d8b1-012b-79aa-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:29:51) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 260ms (View: 13, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing LessonsController#new (for 127.0.0.1 at 2009-02-09 02:29:55) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering lessons/new
+Rendered lessons/_form (4.5ms)
+Completed in 29ms (View: 10, DB: 0) | 200 OK [http://localhost/lessons/new]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:31:14) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 264ms (View: 12, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:31:16) [GET]
+  Parameters: {"id"=>"56826fa0-d8b1-012b-79a6-002332ced2f8"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.3ms)
+Completed in 83ms (View: 9, DB: 0) | 200 OK [http://localhost/cards/56826fa0-d8b1-012b-79a6-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:31:20) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 268ms (View: 12, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:31:22) [GET]
+  Parameters: {"id"=>"9c9cd160-d8b1-012b-79aa-002332ced2f8"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.2ms)
+Completed in 181ms (View: 105, DB: 0) | 200 OK [http://localhost/cards/9c9cd160-d8b1-012b-79aa-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:31:32) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 292ms (View: 14, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:31:35) [GET]
+  Parameters: {"id"=>"56826fa0-d8b1-012b-79a6-002332ced2f8"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.3ms)
+Completed in 84ms (View: 9, DB: 0) | 200 OK [http://localhost/cards/56826fa0-d8b1-012b-79a6-002332ced2f8]
+
+
+Processing LessonsController#create (for 127.0.0.1 at 2009-02-09 02:31:46) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"f49d3fcdf41c9c25478bc8a4474477fc144e6016", "lesson"=>{"created_at"=>"2009/02/09", "_rev"=>"0", "author"=>"brandon", "public"=>"1", "post"=>"This lesson takes a look at Google's Android Platform. \r\n\r\n<p> First lets take a look at this Developer Perspective from Scribd.com </p>\r\n\r\n[fc:0]\r\n\r\n<p>This is an example of the Android SDK</p>\r\n\r\n[fc:1]", "title"=>"Programming for Google Android", "card_type"=>"Lecture", "cards"=>"9c9cd160-d8b1-012b-79aa-002332ced2f8,56826fa0-d8b1-012b-79a6-002332ced2f8", "_id"=>"c092f490-d8b1-012b-79af-002332ced2f8", "tags"=>"Android, SDK, programming", "type"=>"Lesson"}, "id"=>{"c092f490-d8b1-012b-79af-002332ced2f8"=>""}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/lessons/c092f490-d8b1-012b-79af-002332ced2f8
+Completed in 545ms (DB: 0) | 302 Found [http://localhost/lessons]
+
+
+Processing LessonsController#show (for 127.0.0.1 at 2009-02-09 02:31:47) [GET]
+  Parameters: {"id"=>"c092f490-d8b1-012b-79af-002332ced2f8"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_show_tags (0.4ms)
+Rendered lessons/_display_note_card (5.1ms)
+Rendered layouts/_show_tags (0.3ms)
+Rendered lessons/_display_note_card (2.2ms)
+Rendering template within layouts/default
+Rendering lessons/show
+Completed in 332ms (View: 7, DB: 0) | 200 OK [http://localhost/lessons/c092f490-d8b1-012b-79af-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:31:51) [GET]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 271ms (View: 12, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-02-09 02:32:05) [GET]
+
+
+ActionController::RoutingError (No route matches "/course/new" with {:method=>:get}):
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/routing/route_set.rb:386:in `recognize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:182:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:54:in `serve_rails'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:74:in `call'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:63:in `pre_process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:54:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:39:in `receive_data'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.2/lib/eventmachine.rb:231:in `run_machine'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.2/lib/eventmachine.rb:231:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/backends/base.rb:57:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/server.rb:150:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/controllers/controller.rb:80:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `run_command'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:139:in `run!'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/thin.rb:20
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:32:09) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 252ms (View: 10, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:32:27) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 397ms (View: 16, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CoursesController#new (for 127.0.0.1 at 2009-02-09 02:32:28) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering courses/new
+Rendered courses/_form (3.6ms)
+Completed in 34ms (View: 16, DB: 0) | 200 OK [http://localhost/courses/new]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:34:03) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 270ms (View: 12, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing LessonsController#show (for 127.0.0.1 at 2009-02-09 02:34:05) [GET]
+  Parameters: {"id"=>"c0420dc0-d8b0-012b-799c-002332ced2f8"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_show_tags (0.3ms)
+Rendered lessons/_display_note_card (3.4ms)
+Rendered layouts/_show_tags (0.2ms)
+Rendered lessons/_display_note_card (1.5ms)
+Rendered layouts/_show_tags (0.2ms)
+Rendered lessons/_display_note_card (1.4ms)
+Rendering template within layouts/default
+Rendering lessons/show
+Completed in 287ms (View: 5, DB: 0) | 200 OK [http://localhost/lessons/c0420dc0-d8b0-012b-799c-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:34:15) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 306ms (View: 13, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing LessonsController#show (for 127.0.0.1 at 2009-02-09 02:34:16) [GET]
+  Parameters: {"id"=>"c092f490-d8b1-012b-79af-002332ced2f8"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_show_tags (0.3ms)
+Rendered lessons/_display_note_card (4.0ms)
+Rendered layouts/_show_tags (0.2ms)
+Rendered lessons/_display_note_card (1.1ms)
+Rendering template within layouts/default
+Rendering lessons/show
+Completed in 212ms (View: 5, DB: 0) | 200 OK [http://localhost/lessons/c092f490-d8b1-012b-79af-002332ced2f8]
+
+
+Processing CoursesController#create (for 127.0.0.1 at 2009-02-09 02:34:29) [POST]
+  Parameters: {"course"=>{"created_at"=>"2009/02/09", "_rev"=>"0", "author"=>"brandon", "public"=>"1", "post"=>"This Course focuses on developing applications for two of the most popular new mobile devices, the iPhone and Google's Android Platform.\r\n\r\n<ul>\r\n<li>[fl:0]</li>\r\n<li>[fl:1]</li>\r\n\r\n", "title"=>"Mobile Application Development", "card_type"=>"Syllabus", "_id"=>"1c5d32b0-d8b2-012b-79bc-002332ced2f8", "tags"=>"iPhone, Android, Mobile, Programming", "type"=>"Course", "lessons"=>"c0420dc0-d8b0-012b-799c-002332ced2f8,c092f490-d8b1-012b-79af-002332ced2f8"}, "commit"=>"Save", "authenticity_token"=>"f49d3fcdf41c9c25478bc8a4474477fc144e6016", "id"=>{"1c5d32b0-d8b2-012b-79bc-002332ced2f8"=>""}}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/courses/1c5d32b0-d8b2-012b-79bc-002332ced2f8
+Completed in 1540ms (DB: 0) | 302 Found [http://localhost/courses]
+
+
+Processing CoursesController#show (for 127.0.0.1 at 2009-02-09 02:34:30) [GET]
+  Parameters: {"id"=>"1c5d32b0-d8b2-012b-79bc-002332ced2f8"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_show_tags (0.3ms)
+Rendered courses/_display_lesson_card (5.9ms)
+Rendered layouts/_show_tags (0.4ms)
+Rendered courses/_display_lesson_card (1.7ms)
+Rendering template within layouts/default
+Rendering courses/show
+Completed in 387ms (View: 7, DB: 0) | 200 OK [http://localhost/courses/1c5d32b0-d8b2-012b-79bc-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:34:35) [GET]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 280ms (View: 13, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2009-02-09 02:34:42) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to /
+Completed in 85ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-09 02:34:42) [GET]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/index
+Completed in 14ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-02-09 02:34:48) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"bb22013be788b2265923ee0b498a4d2f247b690d", "login"=>"robert", "password"=>"test"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'robert') LIMIT 1[0m
+Redirected to actiondashboardcontrollerhome
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:34:48) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 376ms (View: 9, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing LessonsController#show (for 127.0.0.1 at 2009-02-09 02:34:56) [GET]
+  Parameters: {"id"=>"c092f490-d8b1-012b-79af-002332ced2f8", "pub"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+
+
+Git::GitExecuteError (git cat-file -t 92ec64976c7cd16bd986ddeb9d0b001644af8983:Cards/9c9cd160-d8b1-012b-79aa-002332ced2f8:fatal: Not a valid object name 92ec64976c7cd16bd986ddeb9d0b001644af8983:Cards/9c9cd160-d8b1-012b-79aa-002332ced2f8):
+    /opt/local/lib/ruby/gems/1.8/gems/git-1.0.5/lib/git/lib.rb:624:in `command'
+    /opt/local/lib/ruby/gems/1.8/gems/git-1.0.5/lib/git/lib.rb:111:in `object_type'
+    /opt/local/lib/ruby/gems/1.8/gems/git-1.0.5/lib/git/object.rb:273:in `new'
+    /opt/local/lib/ruby/gems/1.8/gems/git-1.0.5/lib/git/base.rb:166:in `object'
+    /app/models/git_record.rb:97:in `find_by_version'
+    /app/models/card.rb:41:in `find'
+    /app/controllers/lessons_controller.rb:55:in `show'
+    /app/controllers/lessons_controller.rb:46:in `map'
+    /app/controllers/lessons_controller.rb:46:in `show'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:1253:in `perform_action_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:617:in `call_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/rescue.rb:136:in `perform_action_without_caching'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/activerecord-2.2.2/lib/active_record/query_cache.rb:8:in `cache'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/filters.rb:606:in `process_without_session_management_support'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/session_management.rb:134:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/base.rb:392:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:183:in `handle_request'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:110:in `dispatch_unlocked'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:123:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `synchronize'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:122:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:132:in `dispatch_cgi'
+    /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/dispatcher.rb:39:in `dispatch'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:54:in `serve_rails'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/rack/adapter/rails.rb:74:in `call'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:63:in `pre_process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:54:in `process'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/connection.rb:39:in `receive_data'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.2/lib/eventmachine.rb:231:in `run_machine'
+    /opt/local/lib/ruby/gems/1.8/gems/eventmachine-0.12.2/lib/eventmachine.rb:231:in `run'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/backends/base.rb:57:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/server.rb:150:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/controllers/controller.rb:80:in `start'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `send'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:173:in `run_command'
+    /opt/local/lib/ruby/gems/1.8/gems/thin-1.0.0/lib/thin/runner.rb:139:in `run!'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/servers/thin.rb:20
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:521:in `new_constants_in'
+    /Users/bpollet/.gem/ruby/1.8/gems/activesupport-2.2.2/lib/active_support/dependencies.rb:153:in `require'
+    /opt/local/lib/ruby/gems/1.8/gems/rails-2.2.2/lib/commands/server.rb:49
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /opt/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    script/server:3
+
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_trace (42.7ms)
+Rendered /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/_request_and_response (1.5ms)
+Rendering /opt/local/lib/ruby/gems/1.8/gems/actionpack-2.2.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2009-02-09 02:39:56) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to /
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-09 02:39:56) [GET]
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/index
+Completed in 104ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-02-09 02:40:00) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"6cc2d4706896d13269b7df13bd4d76372abc543e", "login"=>"brandon", "password"=>"gueto1"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."login" = 'brandon') LIMIT 1[0m
+Redirected to actiondashboardcontrollerhome
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:40:00) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 252ms (View: 10, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CoursesController#show (for 127.0.0.1 at 2009-02-09 02:40:03) [GET]
+  Parameters: {"id"=>"1c5d32b0-d8b2-012b-79bc-002332ced2f8"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_show_tags (0.2ms)
+Rendered courses/_display_lesson_card (2.9ms)
+Rendered layouts/_show_tags (0.2ms)
+Rendered courses/_display_lesson_card (1.2ms)
+Rendering template within layouts/default
+Rendering courses/show
+Completed in 219ms (View: 5, DB: 0) | 200 OK [http://localhost/courses/1c5d32b0-d8b2-012b-79bc-002332ced2f8]
+
+
+Processing CoursesController#edit (for 127.0.0.1 at 2009-02-09 02:40:05) [GET]
+  Parameters: {"id"=>"1c5d32b0-d8b2-012b-79bc-002332ced2f8"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering courses/edit
+Rendered courses/_form (3.0ms)
+Completed in 192ms (View: 115, DB: 0) | 200 OK [http://localhost/courses/1c5d32b0-d8b2-012b-79bc-002332ced2f8/edit]
+
+
+Processing CoursesController#create (for 127.0.0.1 at 2009-02-09 02:40:08) [POST]
+  Parameters: {"course"=>{"created_at"=>"2009/02/09", "_rev"=>"1", "author"=>"brandon", "public"=>"1", "post"=>"This Course focuses on developing applications for two of the most popular new mobile devices, the iPhone and Google's Android Platform.\r\n\r\n<ul>\r\n<li>[fl:0]</li>\r\n<li>[fl:1]</li>\r\n\r\n", "title"=>"Mobile Application Development", "card_type"=>"Syllabus", "_id"=>"1c5d32b0-d8b2-012b-79bc-002332ced2f8", "tags"=>"iPhone, Android, Mobile, Programming", "type"=>"Course", "lessons"=>"c317e81e30cf616e31b31ec17975f113c609635c:c0420dc0-d8b0-012b-799c-002332ced2f8,9e0c96642b5f3d60bed87e1ea19e786b12ab0283:c092f490-d8b1-012b-79af-002332ced2f8"}, "commit"=>"Save", "authenticity_token"=>"6cc2d4706896d13269b7df13bd4d76372abc543e", "id"=>{"1c5d32b0-d8b2-012b-79bc-002332ced2f8"=>""}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/courses/1c5d32b0-d8b2-012b-79bc-002332ced2f8
+Completed in 1308ms (DB: 0) | 302 Found [http://localhost/courses]
+
+
+Processing CoursesController#show (for 127.0.0.1 at 2009-02-09 02:40:09) [GET]
+  Parameters: {"id"=>"1c5d32b0-d8b2-012b-79bc-002332ced2f8"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_show_tags (0.2ms)
+Rendered courses/_display_lesson_card (2.4ms)
+Rendered layouts/_show_tags (0.2ms)
+Rendered courses/_display_lesson_card (1.0ms)
+Rendering template within layouts/default
+Rendering courses/show
+Completed in 214ms (View: 5, DB: 0) | 200 OK [http://localhost/courses/1c5d32b0-d8b2-012b-79bc-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:40:11) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 258ms (View: 10, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2009-02-09 02:40:19) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to /
+Completed in 12ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-09 02:40:19) [GET]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/index
+Completed in 13ms (View: 4, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-02-09 02:40:23) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"7516e30657e88e729b7d9fa558c5d2be55a3f0ab", "login"=>"robert", "password"=>"test"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'robert') LIMIT 1[0m
+Redirected to actiondashboardcontrollerhome
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:40:23) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 249ms (View: 9, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing LessonsController#show (for 127.0.0.1 at 2009-02-09 02:40:26) [GET]
+  Parameters: {"id"=>"c092f490-d8b1-012b-79af-002332ced2f8", "pub"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendered layouts/_show_tags (0.2ms)
+Rendered lessons/_display_note_card (4.1ms)
+Rendered layouts/_show_tags (0.3ms)
+Rendered lessons/_display_note_card (2.4ms)
+Rendering template within layouts/default
+Rendering lessons/show
+Completed in 221ms (View: 7, DB: 0) | 200 OK [http://localhost/lessons/c092f490-d8b1-012b-79af-002332ced2f8?pub=1]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:40:30) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 271ms (View: 11, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-02-09 02:40:38) [GET]
+Rendering template within layouts/default
+Rendering sessions/new
+Completed in 16ms (View: 14, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-02-09 02:40:42) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"1bea78619bb6deb507bc0386549da3b3c257c0f0", "login"=>"brandon", "password"=>"gueto1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'brandon') LIMIT 1[0m
+Redirected to actiondashboardcontrollerhome
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:40:42) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 274ms (View: 11, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing LessonsController#show (for 127.0.0.1 at 2009-02-09 02:40:45) [GET]
+  Parameters: {"id"=>"c0420dc0-d8b0-012b-799c-002332ced2f8"}
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_show_tags (0.3ms)
+Rendered lessons/_display_note_card (4.5ms)
+Rendered layouts/_show_tags (0.3ms)
+Rendered lessons/_display_note_card (1.6ms)
+Rendered layouts/_show_tags (0.2ms)
+Rendered lessons/_display_note_card (1.7ms)
+Rendering template within layouts/default
+Rendering lessons/show
+Completed in 306ms (View: 6, DB: 0) | 200 OK [http://localhost/lessons/c0420dc0-d8b0-012b-799c-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:40:50) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 305ms (View: 10, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing LessonsController#show (for 127.0.0.1 at 2009-02-09 02:40:55) [GET]
+  Parameters: {"id"=>"c092f490-d8b1-012b-79af-002332ced2f8", "pub"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendered layouts/_show_tags (0.2ms)
+Rendered lessons/_display_note_card (2.9ms)
+Rendered layouts/_show_tags (0.2ms)
+Rendered lessons/_display_note_card (1.5ms)
+Rendering template within layouts/default
+Rendering lessons/show
+Completed in 213ms (View: 7, DB: 0) | 200 OK [http://localhost/lessons/c092f490-d8b1-012b-79af-002332ced2f8?pub=1]
+
+
+Processing LessonsController#clone (for 127.0.0.1 at 2009-02-09 02:41:00) [GET]
+  Parameters: {"id"=>"c092f490-d8b1-012b-79af-002332ced2f8", "version"=>"HEAD"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Redirected to actiondashboardcontrollerhome
+Completed in 402ms (DB: 0) | 302 Found [http://localhost/lessons/clone/c092f490-d8b1-012b-79af-002332ced2f8?version=HEAD]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:41:01) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 273ms (View: 11, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:41:05) [GET]
+  Parameters: {"id"=>"9c9cd160-d8b1-012b-79aa-002332ced2f8"}
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.2ms)
+Completed in 88ms (View: 10, DB: 0) | 200 OK [http://localhost/cards/9c9cd160-d8b1-012b-79aa-002332ced2f8]
+
+
+Processing CardsController#edit (for 127.0.0.1 at 2009-02-09 02:41:14) [GET]
+  Parameters: {"id"=>"9c9cd160-d8b1-012b-79aa-002332ced2f8"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/edit
+Rendered cards/_form (4.2ms)
+Completed in 86ms (View: 12, DB: 0) | 200 OK [http://localhost/cards/9c9cd160-d8b1-012b-79aa-002332ced2f8/edit]
+
+
+Processing CardsController#create (for 127.0.0.1 at 2009-02-09 02:41:27) [POST]
+  Parameters: {"commit"=>"Save", "authenticity_token"=>"7516e30657e88e729b7d9fa558c5d2be55a3f0ab", "card"=>{"created_at"=>"2009/02/09", "_rev"=>"5", "author"=>"robertbrandon", "public"=>"1", "post"=>"<a title=\"View Google Android - A developer's perspective on Scribd\" href=\"http://www.scribd.com/doc/4446529/Google-Android-A-developers-perspective\" style=\"margin: 12px auto 6px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block; text-decoration: underline;\">Google Android - A developer's perspective</a> <object codebase=\"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0\" id=\"doc_335587025824083\" name=\"doc_335587025824083\" classid=\"clsid:d27cdb6e-ae6d-11cf-96b8-444553540000\" align=\"middle\"\theight=\"500\" width=\"100%\">\t\t<param name=\"movie\"\tvalue=\"http://d.scribd.com/ScribdViewer.swf?document_id=4446529&access_key=key-1bw212ge5d092uom2n3t&page=1&version=1&viewMode=slideshow\"> \t\t<param name=\"quality\" value=\"high\"> \t\t<param name=\"play\" value=\"true\">\t\t<param name=\"loop\" value=\"true\"> \t\t<param name=\"scale\" value=\"showall\">\t\t<param name=\"wmode\" value=\"opaque\"> \t\t<param name=\"devicefont\" value=\"false\">\t\t<param name=\"bgcolor\" value=\"#ffffff\"> \t\t<param name=\"menu\" value=\"true\">\t\t<param name=\"allowFullScreen\" value=\"true\"> \t\t<param name=\"allowScriptAccess\" value=\"always\"> \t\t<param name=\"salign\" value=\"\">    \t\t\t    \t<param name=\"mode\" value=\"slideshow\">\t    \t\t<embed src=\"http://d.scribd.com/ScribdViewer.swf?document_id=4446529&access_key=key-1bw212ge5d092uom2n3t&page=1&version=1&viewMode=slideshow\" quality=\"high\" pluginspage=\"http://www.macromedia.com/go/getflashplayer\" play=\"true\" loop=\"true\" scale=\"showall\" wmode=\"opaque\" devicefont=\"false\" bgcolor=\"#ffffff\" name=\"doc_335587025824083_object\" menu=\"true\" allowfullscreen=\"true\" allowscriptaccess=\"always\" salign=\"\" type=\"application/x-shockwave-flash\" align=\"middle\" mode=\"slideshow\" height=\"500\" width=\"100%\"></embed>\t</object>\t<div style=\"margin: 6px auto 3px auto; font-family: Helvetica,Arial,Sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 12px; line-height: normal; font-size-adjust: none; font-stretch: normal; -x-system-font: none; display: block;\">    <a href=\"http://www.scribd.com/upload\" style=\"text-decoration: underline;\">Publish at Scribd</a> or <a href=\"http://www.scribd.com/browse\" style=\"text-decoration: underline;\">explore</a> others:            <a href=\"http://www.scribd.com/browse/Presentations-Slideshows/Internet-Technology?style=text-decoration%3A+underline%3B\">Internet & Technolog</a>              <a href=\"http://www.scribd.com/browse/Presentations-Slideshows/?style=text-decoration%3A+underline%3B\">Presentations & Slid</a>                  <a href=\"http://www.scribd.com/tag/2008\" style=\"text-decoration: underline;\">2008</a>              <a href=\"http://www.scribd.com/tag/BarCamp\" style=\"text-decoration: underline;\">BarCamp</a>      \t</div>", "title"=>"Google Android - A Developer's Perspective - Updated", "card_type"=>"Embed", "_id"=>"9c9cd160-d8b1-012b-79aa-002332ced2f8", "tags"=>"Google, Android, Book", "type"=>"Card"}, "id"=>{"9c9cd160-d8b1-012b-79aa-002332ced2f8"=>""}}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Redirected to http://localhost:3000/cards/9c9cd160-d8b1-012b-79aa-002332ced2f8
+Completed in 119ms (DB: 0) | 302 Found [http://localhost/cards]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:41:27) [GET]
+  Parameters: {"id"=>"9c9cd160-d8b1-012b-79aa-002332ced2f8"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.3ms)
+Completed in 92ms (View: 10, DB: 0) | 200 OK [http://localhost/cards/9c9cd160-d8b1-012b-79aa-002332ced2f8]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:41:31) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 272ms (View: 11, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing CardsController#show (for 127.0.0.1 at 2009-02-09 02:41:36) [GET]
+  Parameters: {"id"=>"9c9cd160-d8b1-012b-79aa-002332ced2f8", "pub"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering cards/show
+Rendered layouts/_show_tags (0.3ms)
+Completed in 85ms (View: 10, DB: 0) | 200 OK [http://localhost/cards/9c9cd160-d8b1-012b-79aa-002332ced2f8?pub=1]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:41:40) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 258ms (View: 9, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing LessonsController#show (for 127.0.0.1 at 2009-02-09 02:41:45) [GET]
+  Parameters: {"id"=>"c092f490-d8b1-012b-79af-002332ced2f8", "pub"=>"1"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendered layouts/_show_tags (0.3ms)
+Rendered lessons/_display_note_card (5.2ms)
+Rendered layouts/_show_tags (0.3ms)
+Rendered lessons/_display_note_card (2.0ms)
+Rendering template within layouts/default
+Rendering lessons/show
+Completed in 229ms (View: 6, DB: 0) | 200 OK [http://localhost/lessons/c092f490-d8b1-012b-79af-002332ced2f8?pub=1]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:41:51) [GET]
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 261ms (View: 12, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2009-02-09 02:42:13) [GET]
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) LIMIT 1[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to /
+Completed in 13ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-09 02:42:13) [GET]
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/index
+Completed in 14ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-02-09 02:42:19) [POST]
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"810598ee33341c61c8331b8457009017a12a9cdd", "login"=>"tom", "password"=>"test"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."login" = 'tom') LIMIT 1[0m
+Redirected to actiondashboardcontrollerhome
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/session]
+
+
+Processing HomeController#dashboard (for 127.0.0.1 at 2009-02-09 02:42:19) [GET]
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/dashboard
+Completed in 301ms (View: 11, DB: 0) | 200 OK [http://localhost/home/dashboard]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2009-02-09 02:42:34) [GET]
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 4) LIMIT 1[0m
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+Redirected to /
+Completed in 14ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2009-02-09 02:42:34) [GET]
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" IS NULL) LIMIT 1[0m
+Rendering template within layouts/default
+Rendering home/index
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://localhost/]

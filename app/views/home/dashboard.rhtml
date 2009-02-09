@@ -37,7 +37,7 @@
 					<td valign="top">
 						Courses<br/>
 						<% if @user %>
-							<%= link_to "New Course", :controller => "course", :action => :new %><br/>
+							<%= link_to "New Course", :controller => "courses", :action => :new %><br/>
 						<% end %>
 						<ul>
 							<% @my_courses.each do |course| %>
