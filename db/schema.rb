@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20090206051730) do
     t.datetime "updated_at"
     t.string   "remember_token"
     t.datetime "remember_token_expires_at"
-    t.string   "role"
+    t.string   "role",                                    :default => "student"
   end
 
 end

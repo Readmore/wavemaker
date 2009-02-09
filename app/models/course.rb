@@ -47,10 +47,35 @@ class Course < GitRecord
   end
   
   def self.find(username, id, version="HEAD")
-    l = Course.new(@username)
-    l.attributes = GitRecord.find_by_version(username, id, version)
-    l.lessons = l.lessons.split(",").each {|str| str.strip!}
-    l
+    c = Course.new(@username)
+    c.attributes = GitRecord.find_by_version(username, id, version)
+    c.lessons = c.lessons.split(",").each {|str| str.strip!}
+    c.author = c.author.split(",")
+    c
+  end
+  
+  def self.clone(username, id, version="HEAD")
+    # Get Course from master
+    course = Course.find("master", id, version)
+    
+    if course && !course.author.include?(username)
+      # Update Author fieldd
+      if course.author.is_a?(Array)
+        authors = course.author.insert(0, username)
+        course.author = authors.join(",")
+      else
+        course.author = username + "," + course.author
+      end
+      
+      # Clone the lessons referenced by this course
+      Course.clone_lessons(username, course.lessons)
+      
+      # Save Course to user's repo
+      Course.save(username, course.attributes)
+      return true
+    end
+    
+    return false
   end
   
   def self.save(username, attributes, pub=false)
@@ -75,6 +100,20 @@ class Course < GitRecord
   end
 
   private
+  
+  def self.clone_lessons(username, lessons)
+    # split out the version from the id in the lessons array
+    # then call clone for each lesson with the correct version
+    lessons.each do |id|
+      res = id.split(":")
+      version = "HEAD"
+      if res[1]
+        version = res[0]
+        id = res[1]
+      end
+      Lesson.clone(username, id, version)
+    end
+  end
   
   def self.set_lessons_public(username, lessons)
     lessons_arr = []

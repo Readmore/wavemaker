@@ -5,8 +5,14 @@
 	<%= @lesson.post %>
 
 </div>
-<%= link_to "Dashboard", :controller => "home", :action => "dashboard" %> | 
-<% if @user && @user.login == @lesson.author %>
-	<%= link_to "Edit", :action => :edit, :id => @lesson._id %> |
-	<%= link_to "Destroy", lesson_path(@lesson._id), :method => :delete %>
+<%= link_to "Dashboard", :controller => "home", :action => "dashboard" %> 
+<% if @user %>
+	<% if @branch == "master" %>
+		<% if @user.role != "student" && !@lesson.author.include?(@user.login) %>
+			| <%= link_to "Clone", :action => :clone, :id => @lesson._id, :version => @version %>
+		<% end %>
+	<% elsif @lesson.author.include?(@user.login) %>
+	 	| <%= link_to "Edit", :action => :edit, :id => @lesson._id %> |
+		<%= link_to "Destroy", lesson_path(@lesson._id), :method => :delete %>
+	<% end %>
 <% end %>

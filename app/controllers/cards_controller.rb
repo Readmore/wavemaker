@@ -23,17 +23,19 @@ class CardsController < ApplicationController
   # GET /cards/1
   # GET /cards/1.xml
   def show
-    branch = "master"
+    @branch = "master"
+    @version = "HEAD"
     
     if @user && !params[:pub]
-      branch = @user.login
+      @branch = @user.login
     end
     
     #@card = Card.new(@user.login)
     if params[:version]
-      @card = Card.find(branch, params[:id], params[:version])
+      @version = params[:version]
+      @card = Card.find(@branch, params[:id], params[:version])
     else
-      @card = Card.find(branch, params[:id])
+      @card = Card.find(@branch, params[:id])
     end
     
     respond_to do |format|
@@ -82,6 +84,20 @@ class CardsController < ApplicationController
         format.html { redirect_to card_url(card.attributes["_id"]) }
         format.xml  { render :xml => card, :status => :created, :location => card }
     end
+  end
+
+  def clone
+    # take the card with this id from master and save it to the user's repo
+    if params[:id] && params[:version]
+      if @user.role == "admin" || @user.role == "faculty"
+        if Card.clone(@user.login, params[:id], params[:version])
+          flash[:notice] = "Card Cloned to Your Data!"
+        end
+      end
+    end 
+    # redirect to Dashboard
+    redirect_to :controller => :home, :action => "dashboard"  
+    
   end
 
   # PUT /cards/1

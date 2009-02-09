@@ -45,8 +45,32 @@ class Lesson < GitRecord
       l.attributes["cards"] = l.attributes["cards"].split(",").each {|str| str.strip!}
       #l.cards = l.cards.split(",").each {|str| str.strip!}
     end
-    
+    l.attributes["author"] = l.attributes["author"].split(",")
     l
+  end
+  
+  def self.clone(username, id, version="HEAD")
+    # Get Lesson from master
+    lesson = Lesson.find("master", id, version)
+    
+    if lesson && !lesson.author.include?(username)
+      # Update Author fieldd
+      if lesson.author.is_a?(Array)
+        authors = lesson.author.insert(0, username)
+        lesson.author = authors.join(",")
+      else
+        lesson.author = username + "," + lesson.author
+      end
+      
+      # Clone the cards referenced by this lesson
+      Lesson.clone_cards(username, lesson.cards)
+      
+      # Save Lesson to user's repo
+      Lesson.save(username, lesson.attributes)
+      return true
+    end
+    
+    return false
   end
   
   def self.save(username, attributes, pub=false)
@@ -92,6 +116,20 @@ class Lesson < GitRecord
   end
   
   private
+  
+  def self.clone_cards(username, cards)
+    # split out the version from the id in the cards arra
+    # then call clone for each card with the correct version
+    cards.each do |id|
+      res = id.split(":")
+      version = "HEAD"
+      if res[1]
+        version = res[0]
+        id = res[1]
+      end
+      Card.clone(username, id, version)
+    end
+  end
   
   def self.set_cards_public(username, cards)
     cards_arr = []

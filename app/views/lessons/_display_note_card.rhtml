@@ -6,7 +6,11 @@
 		<%= link_to c.title, :controller => "cards", :action => "show", :id => c._id, :version => c.version %>
 	<% end %>
 		<br/>
-		<font size="smaller">&nbsp;by <%= link_to c.author, :controller => "users", :action => "show", :id => c.author %> on <%= c.created_at %> </font></h4>
+		<font size="smaller">&nbsp;by 
+		<% c.author.each do |author| %>
+			<%= link_to author, :controller => "users", :action => "show", :id => author %> 
+		<% end %>
+		on <%= c.created_at %> </font></h4>
 		<p>
 		<% if c.card_type == "Audio" %>
 			<embed src="http://webjay.org/flash/dark_player" width="400" height="40" wmode="transparent" flashVars="playlist_url=<%= c.post %>&amp;skin_color_1=-145,-89,-4,5&skin_color_2=-141,20,0,0" type="application/x-shockwave-flash" />

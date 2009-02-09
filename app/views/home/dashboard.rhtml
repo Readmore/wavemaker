@@ -3,6 +3,11 @@
 	<h3>
 		Dashboard for: <%= @user.login %>
 	</h3>
+	<% if flash[:notice] %>
+		<p>
+			<%= flash[:notice] %>
+		</p>
+	<% end %>
 	<div id="my_recent_data">
 		<p>My Data
 			<table cellpadding="6">

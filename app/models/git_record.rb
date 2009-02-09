@@ -258,6 +258,9 @@ class GitRecord
   
   ### Check Latest on GitHub to make sure this isn't already there
   
+  ### Possible way to find author name when multiple authors are listed in field
+  # git grep -e "author => .*don"
+  
   
   # Each View will be it's own function that wraps git grep and returns an array of values
   def self.cards_by_author(repo, params)

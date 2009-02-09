@@ -25,13 +25,14 @@ class CoursesController < ApplicationController
     # GET /courses/1
     # GET /courses/1.xml
     def show
-      branch = "master"
-
+      @branch = "master"
+      @version = "HEAD"
+      
       if @user && !params[:pub]
-        branch = @user.login
+        @branch = @user.login
       end
 
-      @course = Course.find(branch, params[:id])
+      @course = Course.find(@branch, params[:id])
       if @course
         num = @course.lessons.length
         #parse course.post and find all lesson identifiers [fc:x] where x is the array index
@@ -47,9 +48,9 @@ class CoursesController < ApplicationController
               lesson_id = res[1]
             end
             if params[:pub]
-              Lesson.find(branch, lesson_id, version, true)
+              Lesson.find(@branch, lesson_id, version, true)
             else
-              Lesson.find(branch, lesson_id)
+              Lesson.find(@branch, lesson_id)
             end
           end
 
@@ -109,6 +110,20 @@ class CoursesController < ApplicationController
           format.html { redirect_to course_url(course.attributes["_id"]) }
           format.xml  { render :xml => course, :status => :created, :location => course }
       end
+    end
+
+    def clone
+      # take the course with this id from master and save it to the user's repo
+      if params[:id] && params[:version]
+        if @user.role == "admin" || @user.role == "faculty"
+          if Course.clone(@user.login, params[:id], params[:version])
+            flash[:notice] = "Course, Lessons, and Cards Cloned to Your Data!"
+          end
+        end
+      end 
+      # redirect to Dashboard
+      redirect_to :controller => :home, :action => "dashboard"  
+
     end
 
     # PUT /courses/1

@@ -7,6 +7,11 @@
 	<% end %>
 		
 		<br/>
-		<font size="smaller">&nbsp;by <%= link_to l.author, :controller => "users", :action => "public_data" %> on <%= l.created_at %> </font></b>
+		<font size="smaller">&nbsp;by 
+		<% l.author.each do |author| %>
+			<%= link_to author, :controller => "users", :action => "show", :id => author %> 
+		<% end %>
+		
+		on <%= l.created_at %> </font></b>
 		<%= render :partial => "layouts/show_tags", :locals => {:tags => l.tags.split(",") }%>
 </div>

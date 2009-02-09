@@ -30,6 +30,10 @@ class Card < GitRecord
     if (tags = @attributes["tags"]) && tags.is_a?(Array)
       @attributes["tags"] = tags.join(",")
     end
+    
+    if (authors = @attributes["author"] && authors.is_a?(Array))
+      @attributes["author"] = authors.join(",")
+    end
   end
   
   def self.find(username, id, version="HEAD", pub=false)
@@ -38,8 +42,29 @@ class Card < GitRecord
     if h.empty?
       h = GitRecord.find_by_version("master", id, version, pub)
     end
+    h["author"] = h["author"].split(",")
     c.attributes = h 
     c
+  end
+  
+  def self.clone(username, id, version="HEAD")
+    # Get Card from master
+    card = Card.find("master", id, version)
+    
+    if card && !card.author.include?(username)
+      # Update Author fieldd
+      if card.author.is_a?(Array)
+        authors = card.author.insert(0, username)
+        card.author = authors.join(",")
+      else
+        card.author = username + "," + card.author
+      end
+      # Save Card to user's repo
+      Card.save(username, card.attributes)
+      return true
+    end
+    
+    return false
   end
   
   def self.save(username, attrs, pub=false)

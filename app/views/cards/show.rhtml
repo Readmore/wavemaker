@@ -3,7 +3,11 @@
 	
 <div class="card_<%= @card.card_type.downcase %>_display">
 		<h4><%= @card.title %><br/>
-			<font size="smaller">&nbsp;by <%= link_to @card.author, :controller => "users", :action => "show", :id => @card.author %> on <%= @card.created_at %> </font></h4>
+			<font size="smaller">&nbsp;by 
+			<% @card.author.each do |author| %>
+				<%= link_to author, :controller => "users", :action => "show", :id => author %>
+			<% end %>	
+			 on <%= @card.created_at %> </font></h4>
 			<p>
 			<% if @card.card_type == "Audio" %>
 				<embed src="http://webjay.org/flash/dark_player" width="400" height="40" wmode="transparent" flashVars="playlist_url=<%= @card.post %>&amp;skin_color_1=-145,-89,-4,5&skin_color_2=-141,20,0,0" type="application/x-shockwave-flash" />
@@ -29,8 +33,14 @@
 	</div>
 
 <%= link_to "Dashboard", :controller => "home", :action => "dashboard" %>
-<% if @user && @user.login == @card.author %>
-	|
-	<%= link_to "Edit", :action => :edit, :id => @card._id %> |
-	<%= link_to "Destroy", card_path(@card._id), :method => :delete %>
+<% if @user %>
+	<% if @branch == "master" %>
+		<% if @user.role != "student" && !@card.author.include?(@user.login) %>
+			| <%= link_to "Clone", :action => :clone, :id => @card._id, :version => @version %>
+		<% end %>
+	<% elsif @card.author.include?(@user.login) %>
+		|
+		<%= link_to "Edit", :action => :edit, :id => @card._id %> |
+		<%= link_to "Destroy", card_path(@card._id), :method => :delete %>
+	<% end %>
 <% end %>

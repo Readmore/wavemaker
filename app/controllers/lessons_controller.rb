@@ -25,16 +25,18 @@ class LessonsController < ApplicationController
   # GET /lessons/1
   # GET /lessons/1.xml
   def show 
-    branch = "master"
+    @branch = "master"
+    @version = "HEAD"
     
     if @user && !params[:pub]
-      branch = @user.login
+      @branch = @user.login
     end
     
     if params[:version]
-      @lesson = Lesson.find(branch, params[:id], params[:version])
+      @version = params[:version]
+      @lesson = Lesson.find(@branch, params[:id], params[:version])
     else
-      @lesson = Lesson.find(branch, params[:id])
+      @lesson = Lesson.find(@branch, params[:id])
     end
     
     if !@lesson.attributes.empty? 
@@ -50,9 +52,9 @@ class LessonsController < ApplicationController
           card_id = res[1]
         end
         if params[:pub]
-          Card.find(branch, card_id, version, true)
+          Card.find(@branch, card_id, version, true)
         else
-          Card.find(branch, card_id)
+          Card.find(@branch, card_id)
         end
       end
     
@@ -111,6 +113,20 @@ class LessonsController < ApplicationController
         format.html { redirect_to lesson_url(lesson.attributes["_id"]) }
         format.xml  { render :xml => lesson, :status => :created, :location => lesson }
     end
+  end
+
+  def clone
+    # take the lesson with this id from master and save it to the user's repo
+    if params[:id] && params[:version]
+      if @user.role == "admin" || @user.role == "faculty"
+        if Lesson.clone(@user.login, params[:id], params[:version])
+          flash[:notice] = "Lesson and Cards Cloned to Your Data!"
+        end
+      end
+    end 
+    # redirect to Dashboard
+    redirect_to :controller => :home, :action => "dashboard"  
+    
   end
 
   # PUT /lessons/1
