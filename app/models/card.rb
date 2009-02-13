@@ -68,6 +68,12 @@ class Card < GitRecord
   end
   
   def self.save(username, attrs, pub=false)
+    if attrs["author"] && !attrs["author"].include?(username)
+      #add this user's name
+      authors = attrs["author"].insert(0, username)
+    end
+    attrs["author"] = attrs["author"].join(",")
+    
     commit = GitRecord.save(username, attrs, pub)
     if commit
       c = Card.new(username)

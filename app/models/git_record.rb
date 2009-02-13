@@ -72,11 +72,12 @@ class GitRecord
       # if version is not HEAD then we need to find the specified version 
       # this can be accomplished with the following call
       # str = repo.object("SHA:path/to/file").contents
-      # This puts the contents of the file with SHA version into str. Then you can read it with something like this
+      # This puts the contents of the file with SHA version into str. 
+      # Then you can read it with something like this
       #  arr = str.split("\n")
       #  Then the steps in read hash, as if you had just gotten in from the file block
       # e.g.
-      # g.object("03c0d83cd2e9e1195fb3eb60d6604220fde13da7:brandon/Cards/bfe057d0-d483-012b-7578-002332ced2f8") 
+      # g.object("03c0d83cd2e9e1195fb3eb6de13da7:brandon/Cards/bfe057d0-d483-012b-7578-002332ced2f8") 
     #repo = self.repo(self.repo_name)
     if pub
       #checkout master branch
@@ -133,7 +134,8 @@ class GitRecord
   
   def self.view(username, view_name, options={})
     #pull a specified query from the Git Repo
-    #e.g. username: test, view_name: by_author, :options = hash of additional values to overwrite defaults
+    #e.g. username: test, view_name: by_author, 
+    #      :options = hash of additional values to overwrite defaults
     #repo = self.repo(self.repo_name)
     repo = self.repo(username)
     results = []

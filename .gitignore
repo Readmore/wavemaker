@@ -1,0 +1,4 @@
+log/*
+tmp/*
+db/development/*
+aws_sdb.log

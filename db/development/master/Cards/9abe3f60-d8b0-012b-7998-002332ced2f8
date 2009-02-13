@@ -1,0 +1,11 @@
+created_at => 2009/02/09
+_rev => 4
+author => brandon
+public => 1
+post => This is the first in a multipart series where I will be teaching you to create an iPhone game from the ground up.  As many of you know, OpenGL and Quartz have quite a steep learning curve.  This tutorial will simplify the development process and not use either one of those technologies.  For our graphics,
+title => iPhone Game Programming Tutorial
+card_type => Note
+_id => 9abe3f60-d8b0-012b-7998-002332ced2f8
+tags => iphone, Games
+version => 6711cc63970a775d83521d6e837b7cf8a7a81962
+type => Card
