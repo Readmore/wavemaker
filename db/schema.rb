@@ -9,7 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090206051730) do
+ActiveRecord::Schema.define(:version => 20090218231521) do
+
+  create_table "filelists", :force => true do |t|
+    t.string   "path"
+    t.integer  "version"
+    t.string   "repo"
+    t.string   "type"
+    t.string   "author"
+    t.boolean  "current"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "filelists", ["repo", "type"], :name => "file_repo_type_indx"
 
   create_table "lessons", :force => true do |t|
     t.datetime "created_at"
@@ -27,5 +40,23 @@ ActiveRecord::Schema.define(:version => 20090206051730) do
     t.datetime "remember_token_expires_at"
     t.string   "role",                                    :default => "student"
   end
+
+  create_table "wordlocs", :force => true do |t|
+    t.integer  "file_id"
+    t.integer  "word_id"
+    t.integer  "location"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wordlocs", ["word_id"], :name => "word_file_indx"
+
+  create_table "words", :force => true do |t|
+    t.string   "word"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "words", ["word"], :name => "word_indx"
 
 end

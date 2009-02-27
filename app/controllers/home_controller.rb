@@ -17,10 +17,9 @@ class HomeController < ApplicationController
       # Get latest public data
       @public_cards = Card.view("master", "cards_by_public")
       @public_lessons = Lesson.view("master", "lessons_by_public")
-      @public_courses = Course.view("master", "courses_by_public")
-    
-    
+      @public_courses = Course.view("master", "courses_by_public")  
   end
+
   
   private
   

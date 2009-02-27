@@ -7,7 +7,16 @@
 	
 	<body align="center">
 		<div id="header"> 
+			<table><tr><td width="75%">
 			<h1>WaveMaker</h1>
+			</td>
+			<td>
+			<span align="right">
+				<% form_for :search, @search, :url => { :controller => :search, :action => :index} do |f| %>
+					Search:<%= f.text_field :q %>
+				<% end %>
+			</span>
+			</td></tr></table>
 			<hr/>
 		</div>
 		<div id="main_body">

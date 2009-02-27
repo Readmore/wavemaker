@@ -72,7 +72,9 @@ class Card < GitRecord
       #add this user's name
       authors = attrs["author"].insert(0, username)
     end
-    attrs["author"] = attrs["author"].join(",")
+    if attrs["author"].class == "Array"
+      attrs["author"] = attrs["author"].join(",")
+    end
     
     commit = GitRecord.save(username, attrs, pub)
     if commit

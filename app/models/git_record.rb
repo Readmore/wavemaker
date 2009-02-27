@@ -1,5 +1,7 @@
 # A minimal class to help use Git as a backend datastore
 class GitRecord
+  require 'indexer'
+  require 'searcher'
 
   attr_accessor :attributes
   
@@ -204,7 +206,10 @@ class GitRecord
         path = res.first[0].split(":")
         ver = path[0] 
       end
-    
+      # File was written to disk without error; add it to the search index
+      indx = Indexer.new 
+      attributes["version"] = ver
+      indx.add(attributes, branches, username)
     ver
   end
   
