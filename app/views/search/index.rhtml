@@ -1,0 +1,11 @@
+<div id="search_results">
+	<% if @results.length > 0 %>
+	<ul>
+	<% @results.each do |result| %>
+		<li>  <%= link_to result[0].path, :controller => "#{result[0].type}s", :action => "show", :id => result[0].id %> | <%= result[1] %></li>
+	<% end %>
+	<ul>
+	<% else %>
+		<h3>No Search Term Given</h3>
+	<% end %>
+</div>
