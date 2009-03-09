@@ -18,6 +18,9 @@ class GitRecord
     begin
       repo = Git.open(full_path_to_repo)
     rescue
+      if !File.exists?("#{RAILS_ROOT}/db/#{RAILS_ENV}")
+        FileUtils.mkdir("#{RAILS_ROOT}/db/#{RAILS_ENV}")
+      end
       FileUtils.mkdir(full_path_to_repo)
       FileUtils.cd(full_path_to_repo) { |dir| Git.init('.') }
       repo = Git.open(full_path_to_repo)
@@ -27,7 +30,7 @@ class GitRecord
       repo.add("#{repo.dir.to_s}/initial_file")
       repo.commit("added initial_file to #{r_name}")
     end
-
+    
     repo
   end
   
