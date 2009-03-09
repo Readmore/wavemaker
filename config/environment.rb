@@ -24,7 +24,7 @@ Rails::Initializer.run do |config|
   # They can then be installed with "rake gems:install" on new installations.
   # You have to specify the :lib option for libraries, where the Gem name (sqlite3-ruby) differs from the file itself (sqlite3)
   #config.gem "bj"
-  config.gem "schacon-git", :version => ">= 1.0.7", :source => "http://gems.github.com ", :lib =>"ruby-git"
+  #config.gem "schacon-git", :version => ">= 1.0.7", :source => "http://gems.github.com " #, :lib =>"ruby-git"
   config.gem "uuid", :version => ">= 2.0.1"
   # config.gem "sqlite3-ruby", :lib => "sqlite3"
   # config.gem "aws-s3", :lib => "aws/s3"
