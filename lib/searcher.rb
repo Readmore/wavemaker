@@ -8,7 +8,7 @@ class Searcher
   def get_scored_list(rows, wordids)
     
     totalscores = {}
-    weights = [[1.0, frequency_score(rows)], [1.4, location_score(rows)], [1.25, distance_score(rows)]]
+    weights = [[1.2, frequency_score(rows)], [1.4, location_score(rows)], [1.5, distance_score(rows)]]
     
     weights.each do |weight, scores|
       rows.each do |row|
@@ -95,6 +95,19 @@ class Searcher
   def get_file_path(file_id)
     f = Filelist.find(file_id)
     f.path
+  end
+  
+  def search(q, repos=["master"])
+    results = []
+    files = query(q)
+    files.each do |file|
+      hit = [Filelist.find(file[0]), file[1]]
+      hit[0].id = hit[0].path.split("/").last
+      if hit[0].current && repos.include?(hit[0].repo)
+        results << hit
+      end 
+    end
+    results
   end
   
   def query(q)

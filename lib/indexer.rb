@@ -18,6 +18,7 @@ class Indexer
       f = Filelist.new
       f.path = path
       f.version = attrs["version"]
+      f.title = attrs["title"]
       f.repo = branch 
       f.type = attrs["type"]
       f.author = username

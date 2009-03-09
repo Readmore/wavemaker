@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090218231521) do
+ActiveRecord::Schema.define(:version => 20090306200835) do
 
   create_table "filelists", :force => true do |t|
     t.string   "path"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20090218231521) do
     t.boolean  "current"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   add_index "filelists", ["repo", "type"], :name => "file_repo_type_indx"

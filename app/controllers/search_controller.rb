@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
+  before_filter :find_user 
   layout "default"
-  
   
   def index
     @searcher = Searcher.new
@@ -12,13 +12,18 @@ class SearchController < ApplicationController
       query = params[:search][:q]
     end
     if query
-      files = @searcher.query(query)
-      files.each do |file|
-        hit = [Filelist.find(file[0]), file[1]]
-        hit[0].id = hit[0].path.split("/").last
-        @results << hit 
+      if @user
+        @results = @searcher.search(query, [@user.login, "master"])  
+      else
+        @results = @searcher.search(query) 
       end
     end
   end
   
+end
+
+private
+
+def find_user
+  @user = User.find_by_id(session[:user_id])
 end
