@@ -1,11 +1,0 @@
-created_at => 2009/02/09
-card_type => Syllabus
-title => Mobile Application Development
-post => This Course focuses on developing applications for two of the most popular new mobile devices, the iPhone and Google's Android Platform.[ln][ln]<ul>[ln]<li>[fl:0]</li>[ln]<li>[fl:1]</li>[ln][ln]
-public => 1
-author => brandon
-_rev => 2
-_id => 1c5d32b0-d8b2-012b-79bc-002332ced2f8
-tags => iPhone, Android, Mobile, Programming
-type => Course
-lessons => 229a2fdf174bc8edb5cb97a718bf51e91c0a53cf:c0420dc0-d8b0-012b-799c-002332ced2f8,2ecec452ff524ee6ec9aa11b352160d1a44e1271:c092f490-d8b1-012b-79af-002332ced2f8
