@@ -1,3 +1,7 @@
 log/*
 tmp/*
+db/development
+db/test
+db/production
+db/development.sqlite3
 aws_sdb.log

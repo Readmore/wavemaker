@@ -8,8 +8,28 @@ Wavemaker is an online education repository that uses Git as it's back-end stora
   sudo gem install ruby-git
   sudo gem install uuid
   
-2. 
+2. Setup your database with 
 
+	$ rake:schema:load
+
+3. Now start up the console 
+	
+	$ ruby script/console
+	
+  Create an admin user with the following commands
+	$ u = User.new
+	$ u.login = "your name"
+	$ u.email = "your email"
+	$ u.password = u.password_confirmation = "your password"
+	$ u.role = "admin"
+	$ u.save
+	
+  If your get back "true" your user was created and you're read to start. type exit.
+
+4. Now start the server ( ruby script/server ) and point your web browser to localhost:3000
+  As an admin user you can create new user accounts at /users/new or you can start creating 
+  education info right away.
+  
 
 == Application Layout
 
