@@ -55,3 +55,214 @@ body {}
 .lesson_display{
 	
 }
+
+/* Added by Brandon
+------------------------------------*/
+.main {
+	background-color:#262626;
+}
+
+#course_div {
+	background-color:white;
+}
+
+#course_display_area {
+	background-color:white;
+	height:250px;
+	width:100%;
+	
+}
+
+#course_small_display_area {
+	background-color:white;
+	height:120px;
+	width:100%;
+}
+
+#course_picture {
+	float:left;
+}
+
+#course_small_picture {
+	float:left;
+}
+
+#course_info {
+	padding:10px;
+	float:right;
+	background-color:white;
+	height:230px;
+	width:40%;
+	overflow:auto;
+}
+
+#course_small_info {
+	padding:10px;
+	float:right;
+	background-color:white;
+	height:100px;
+	width:40%;
+	overflow:auto;
+}
+
+#course_info h3 {
+	color: #0C6590;
+}
+
+#course_small_info h3 a {
+	color: #0C6590;
+}
+
+.course_image {
+	max-width:200px;
+	max-height:200px;
+	text-align:center;
+	margin:20px;
+}
+
+.course_small_image {
+	max-width:100px;
+	max-height:100px;
+	text-align:center;
+	margin:10px;
+}
+
+#course_lessons_table {
+	background-color: white;
+	
+}
+
+#lesson_display_area {
+	background-color:white;
+	width:100%;
+	height:415px;
+	overflow:auto;
+}
+
+#card_display_area {
+	background-color:white;
+}
+
+.header {
+	background: url("/images/ui/table-header.jpg") repeat-x;
+}
+
+.odd{
+    background:#dedede;
+}
+
+#logo {
+	background-color:#262626;
+	margin-left:10px;
+	padding-top:5px;
+	font-size:1.5em;
+	float:left;
+	color:white;
+	
+}
+
+#login {
+	text-align:center;
+	vertical-align:center;
+}
+
+#login label {
+	color:white;
+}
+
+#topper {
+	background: url("/images/ui/div-bar-bg.jpg") repeat-x;
+}
+
+#tabs {
+	margin-top:5px;
+	text-decoration:none;
+}
+
+#tabs ul { list-style-type:none; padding:1px; margin-top:0px; padding-top:0px;}
+
+.remote_tab {
+	width:115px;
+	height:40px;
+	background: url("/images/ui/tab-bg.jpg") repeat-x;
+	border:solid 1px #A3A3A3;
+	text-decoration: none;
+	padding-top:10px; padding-left:5px;
+	cursor:pointer;
+}
+.remote_tab a { color:black; text-decoration:none;}
+
+.remote_tab_active {
+	width:115px;
+	height:40px;
+	background: url("/images/ui/tab-bg-active.jpg") repeat-x;
+	border:solid 1px #A3A3A3;
+	text-decoration: none;
+	padding-top:10px; padding-left:5px;
+	cursor:pointer;
+}
+.remote_tab_active a { color:white; text-decoration:none;}
+
+#tabs-1 {
+	background-color:#262626;
+	min-height:500px;
+	margin-top:29px;
+	
+}
+
+#ui-tabs-5 {
+	background-color:#262626;
+	min-height:415px;
+}
+
+.ui-draggable {
+	text-align:center; 
+	width:125px;
+	font-size:8pt;
+	margin-left:10px;
+}
+
+.ui-draggable a {
+	color:white;
+	
+}
+
+.picture-info-holder {
+	min-height:25px;
+}
+
+.draggable-image {
+	text-align:center;
+	max-width:125px;
+	max-height:125px;
+}
+
+#search_bar {
+	text-align:right;
+	position:relative;
+	padding-top:30px;
+	padding-bottom:5px;
+	color:white;
+}
+
+#search_results_area {
+	background-color:white;
+}
+
+#draggable_1, #draggable_2, #draggable_3, #draggable_4, #draggable_5, #draggable_6, #draggable_7 { width: 100px; height: 100px; padding: 0em; margin: 10px 10px 10px 0; }
+
+#droppable { padding:5px; border:solid 1px #A3A3A3; height:350px; min-height:100%; }
+
+
+#gallery { width: 100%; height:14em; } * html #gallery { height: 12em; } /* IE6 */
+			.gallery.custom-state-active { background: #eee; }
+			.gallery li {  width: 96px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
+			.gallery li h5 { margin: 0 0 0.4em; cursor: move; }
+			.gallery li a {  }
+			.gallery li a.ui-icon-zoomin {  }
+			.gallery li img { width: 100%; cursor: move; }
+
+			#playlist {  width: 150px; min-height:500px; padding: 1%;} * html #playlist { height: 18em; } /* IE6 */
+			#playlist h4 { line-height: 16px; margin: 0 0 0.4em; }
+			#playlist h4 .ui-icon {  }
+			#playlist .gallery h5 { display: none; }

@@ -1,0 +1,35 @@
+<% if @course %>
+<div id="course_small_display_area">
+	<div id="course_small_picture">
+		<%= image_tag @course.pic_link, :class => "course_small_image" %>
+	</div>
+	<div id="course_small_info">
+		<h3><% if @branch == "master" %>
+			<%= link_to_remote @course.title, :update => "tabs-1", :url => { :action => "course_view", :id => @course._id, :pub => 1 } %>
+			<% else %>
+				<%= link_to_remote @course.title, :update => "tabs-1", :url => { :action => "course_view", :id => @course._id } %>
+			<% end %><br/>
+			<font size="smaller">&nbsp;by <%= @course.author %></font></h3>
+	</div>
+</div>
+<hr/>
+<% end %>
+<div id="lesson_display_area">
+	<div id="show_area">
+		<h3><%= @lesson.title %></h3>
+		<%= @lesson.post %>
+
+	</div>
+	<p align="right">
+	<% if @user %>
+		<% if @branch == "master" %>
+			<% if @user.role != "student" && !@lesson.author.include?(@user.login) %>
+				<%= link_to "Clone", :action => :clone, :id => @lesson._id, :version => @version %> |
+			<% end %>
+		<% elsif @lesson.author.include?(@user.login) %>
+		 	<%= link_to "Edit", :action => :edit, :id => @lesson._id %> |
+			<%= link_to "Destroy", lesson_path(@lesson._id), :method => :delete %>
+		<% end %>
+	<% end %>
+	</p>
+</div>

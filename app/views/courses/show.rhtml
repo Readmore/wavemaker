@@ -4,6 +4,11 @@
 	<h3><%= @course.title %><br/>
 		<font size="smaller">&nbsp;by <%= @course.author %> - <%= @course.created_at %></h3>
 	<%= @course.post %>
+	<ul>
+	<% @lessons.each do |lesson| %>
+			<li> <%= link_to lesson.title, :controller => "lessons", :action => "show", :id => lesson._id %> </li>
+	<% end %>
+	</ul>
 
 </div>
 <%= link_to "Dashboard", :controller => "home", :action => "dashboard" %>

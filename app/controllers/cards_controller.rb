@@ -43,6 +43,25 @@ class CardsController < ApplicationController
       format.xml  { render :xml => @card }
     end
   end
+  
+  def ajax_show
+    @branch = "master"
+    @version = "HEAD"
+    
+    if @user && !params[:pub]
+      @branch = @user.login
+    end
+    
+    #@card = Card.new(@user.login)
+    if params[:version]
+      @version = params[:version]
+      @card = Card.find(@branch, params[:id], params[:version])
+    else
+      @card = Card.find(@branch, params[:id])
+    end
+    
+    render :layout => false
+  end
 
   # GET /cards/new
   # GET /cards/new.xml

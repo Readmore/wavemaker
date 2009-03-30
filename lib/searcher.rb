@@ -107,7 +107,7 @@ class Searcher
         results << hit
       end 
     end
-    results
+    results.uniq
   end
   
   def query(q)

@@ -5,6 +5,7 @@ require 'git'
 require 'uuid' 
  
 class ApplicationController < ActionController::Base
+  include AuthenticatedSystem
   helper :all # include all helpers, all the time
   
   $uuid = UUID.new
@@ -16,4 +17,9 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
+  
+  def find_user
+    @user = User.find_by_id(session[:user_id])
+  end
+  
 end

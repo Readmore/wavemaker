@@ -1,0 +1,48 @@
+<div id="course_display_area">
+	<div id="course_picture">
+		<%= image_tag @course.pic_link, :class => "course_image" %>
+	</div>
+	<div id="course_info">
+		<h3><%= @course.title %><br/>
+			<font size="smaller">&nbsp;by <%= @course.author %></font></h3>
+			<p>
+				<%= @course.post %>
+			</p>
+	</div>
+</div>
+<div id="course_lessons_table">
+	
+	<table width="100%">
+	  <tr>
+		<th class="header"> </th>
+		<th class="header"> Title </th>
+		<th class="header"> Author(s) </th>
+		<th class="header"> Type </th>
+	  <% @lessons.each_with_index do |lesson, indx| %>
+	  <tr class="<%= cycle("even", "odd") %>">
+	        <td><%= indx+1 %></td>
+			<% if @branch == "master" %>
+				<td><%= link_to_remote lesson.title, :update => "tabs-1", :url => { :action => "lesson_view", :id => lesson._id, :pub => 1, :course => @course._id } %></td>
+			<% else %>
+				<td><%= link_to_remote lesson.title, :update => "tabs-1", :url => { :action => "lesson_view", :id => lesson._id, :course => @course._id } %></td>
+			<% end %>
+	        <td><%= lesson.author.to_s.capitalize %></td>
+			<td><%= lesson.card_type %></td>
+	  <tr>
+	  <% end %>
+	</table>
+	<p align="right">
+		<% if @user %>
+			<% if @branch == "master" %>
+				<% if @user.role != "student" && !@course.author.include?(@user.login) %>
+					<%= link_to "Clone", :action => :clone, :id => @course._id, :version => @version %> |
+				<% end %>
+			<% elsif @course.author.include?(@user.login) %>
+				<%= link_to "Edit", :action => :edit, :id => @course._id %> |
+				<%= link_to "Destroy", course_path(@course._id), :method => :delete %>
+			<% end %>
+		<% end %>
+	</p>
+</div>
+
+

@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
     include CoursesHelper
-    layout "default"
+    #layout "default"
 
     before_filter :find_user, :login => [:index, :new, :edit, :create, :update, :destroy]
 
@@ -48,7 +48,7 @@ class CoursesController < ApplicationController
               lesson_id = res[1]
             end
             if params[:pub]
-              Lesson.find(@branch, lesson_id, version, true)
+              Lesson.find(@branch, lesson_id, "HEAD", true) #was version not HEAD
             else
               Lesson.find(@branch, lesson_id)
             end
@@ -176,10 +176,6 @@ class CoursesController < ApplicationController
     end
 
     private
-
-    def find_user
-      @user = User.find_by_id(session[:user_id])
-    end
 
     def lesson_display(lesson)
         render_to_string :partial => "display_lesson_card", :locals => {:l => lesson}

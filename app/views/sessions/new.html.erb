@@ -1,14 +1,27 @@
-<% form_tag session_path do -%>
-<p><label for="login">Login</label><br/>
-<%= text_field_tag 'login' %></p>
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Wavemaker - Faculty Ui</title>
+	<%= javascript_include_tag :defaults %>
+	<%= stylesheet_link_tag "main.css" %>
+</head>
+<body bgcolor="#262626">
+	<div id="login">
+		<%= image_tag "ui/bottom_bar.jpg" %>
+		<% form_tag session_path do -%>
+		<p><label for="login">Login</label><br/>
+		<%= text_field_tag 'login' %></p>
 
-<p><label for="password">Password</label><br/>
-<%= password_field_tag 'password' %></p>
+		<p><label for="password">Password</label><br/>
+		<%= password_field_tag 'password' %></p>
 
-<!-- Uncomment this if you want this functionality
-<p><label for="remember_me">Remember me:</label>
-<%= check_box_tag 'remember_me' %></p>
--->
+		<!-- Uncomment this if you want this functionality
+		<p><label for="remember_me">Remember me:</label>
+		<%= check_box_tag 'remember_me' %></p>
+		-->
 
-<p><%= submit_tag 'Log in' %></p>
-<% end -%>
+		<p><%= submit_tag 'Log in' %></p>
+		<% end -%>
+	</div>
+</body>
+</html>

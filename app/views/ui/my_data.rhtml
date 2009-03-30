@@ -1,0 +1,27 @@
+<table>
+	<tr>
+		
+<% @my_courses.each_with_index do |course, indx| %>
+	<td valign="bottom">
+	<div id="draggable_my_course_<%= indx+1 %>" class="ui-draggable">
+		
+		<%= image_tag course["pic_link"], :class => "draggable-image" %> 
+		<div class="picture-info-holder">
+			<%= link_to_remote course["title"], :update => "tabs-1", :url => { :action => :course_view, :id => course["_id"] } %>
+		</div>
+		
+	</div>
+	</td>
+<% end %>
+</tr>
+</table>
+
+<script type="text/javascript">
+$(function() {
+
+		<% @my_courses.each_with_index do |course, indx| %>
+			$("#draggable_my_course_<%= indx+1 %>").draggable({ revert: 'invalid' });
+		<% end %>
+});
+</script>
+

@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Wavemaker - Faculty Ui</title>
+	<link type="text/css" href="/stylesheets/cupertino/jquery-ui-1.7.1.custom.css" rel="stylesheet" />
+	<link type="text/css" href="/stylesheets/main.css" rel="stylehseet" />
+	<script type="text/javascript" src="/javascripts/jquery-1.3.2.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery-ui-1.7.1.custom.min.js"></script>
+	<script type="text/javascript">
+		
+	$(function() {
+		$("#tabs").tabs();
+	});
+	
+	
+	$(function() {
+
+			$("#draggable_1").draggable({ revert: 'invalid' });
+			$("#draggable_2").draggable({ revert: 'invalid' });
+			$("#draggable_3").draggable({ revert: 'invalid' });
+			$("#draggable_4").draggable({ revert: 'invalid' });
+			$("#draggable_5").draggable({ revert: 'invalid' });
+			$("#draggable_6").draggable({ revert: 'invalid' });
+			$("#draggable_7").draggable({ revert: 'invalid' });
+			$("#draggable_8").draggable({ revert: 'invalid' });
+			
+			$("#droppable").droppable({
+				activeClass: 'ui-state-hover',
+				hoverClass: 'ui-state-active',
+				drop: function(event, ui) {
+					$(this).addClass('ui-state-highlight').find('p').html('Dropped!');
+				}
+			});
+			
+
+		});
+		
+		
+	</script>
+	
+	<script type="text/javascript">
+		$(function() {
+			$("#tabs").tabs().addClass('ui-tabs-vertical ui-helper-clearfix');
+			$("#tabs li").removeClass('ui-corner-top').addClass('ui-corner-left');
+		});
+		</script>
+</head>
+<body bgcolor="#262626">
+
+<div class="demo">
+	<div id="logo">
+		<%= image_tag "tcc-logo.jpg" %>Wavemaker
+	</div>
+	<div id="search_bar">
+		<% form_for :search, @search, :url => { :controller => :search, :action => :index} do |f| %>
+			Search:<%= f.text_field :q %>
+		<% end %>
+	</div>
+	<div id="tabs" >
+		<ul>
+			<li><a href="#tabs-1">All Data</a></li>
+			<li><a href="my_data">My Data</a></li>
+			<li><a href="<%= $RAILS_ROOT %>/cards/new">New Card</a></li>
+		</ul>
+		<div id="tabs-1">	
+			<table class="tabs-bg">
+				<tr>
+			<% @public_cards.each_with_index do |card, indx| %>
+				<div id="draggable_<%= indx+1 %>" class="ui-widget-content">
+					<font size="2pt">
+						<%= link_to_remote card["title"], 
+							:url => {:controller => :cards, :action => :ajax_show, :id => card["_id"] },
+							:update => "tabs-1" %>
+					</font>
+				</div>
+			<% end %>
+			
+			
+			</tr>
+			</table>
+
+		</div>
+		<div id="droppable" class="ui-widget-header">
+			Saved Courses
+		</div>
+	</div>
+
+</div>
+
+
+</body>
+</html>

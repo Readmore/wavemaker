@@ -203,7 +203,8 @@ class GitRecord
       end
     end    
      # File was saved, return it's commit sha
-      repo = self.repo("master")
+      #repo = self.repo("master")
+      repo = self.repo(username)
       res = repo.grep("_id => #{attributes['_id']}")
       if res && res.first
         path = res.first[0].split(":")

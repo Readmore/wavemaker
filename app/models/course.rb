@@ -17,10 +17,11 @@ class Course < GitRecord
       "body"        => "",
       "tags"        => [],
       "lessons"       => [],
+      "pic_link"    => "",
       "created_at"  => Time.now.strftime('%Y/%m/%d'),
       "public"      => "0",
       "type"        => "course",
-      "lesson_type" => ""
+      "course_type" => ""
       
     }
   end

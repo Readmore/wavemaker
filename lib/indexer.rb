@@ -20,7 +20,7 @@ class Indexer
       f.version = attrs["version"]
       f.title = attrs["title"]
       f.repo = branch 
-      f.type = attrs["type"]
+      f.record_type = attrs["type"]
       f.author = username
       f.current = true
       f.save

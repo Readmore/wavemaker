@@ -52,7 +52,7 @@ class LessonsController < ApplicationController
           card_id = res[1]
         end
         if params[:pub]
-          Card.find(@branch, card_id, version, true)
+          Card.find(@branch, card_id, "HEAD", true)
         else
           Card.find(@branch, card_id)
         end

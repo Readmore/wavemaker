@@ -1,8 +1,7 @@
 # This controller handles the login/logout function of the site.  
 class SessionsController < ApplicationController
   # Be sure to include AuthenticationSystem in Application Controller instead
-  include AuthenticatedSystem
-  layout "default"
+  #layout "default"
   
   # render new.rhtml
   def new
@@ -15,11 +14,8 @@ class SessionsController < ApplicationController
         current_user.remember_me unless current_user.remember_token?
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       end
-      # Merge the master branch with this user's private branch so that they get all
-      # the latest public data
-      # GitRecord.update_branch(current_user.login)
       
-      redirect_back_or_default(:controller => "home", :action => "dashboard")
+      redirect_back_or_default(:controller => "ui", :action => "home")
       flash[:notice] = "Logged in successfully"
     else
       render :action => 'new'

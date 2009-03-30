@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Wavemaker - Faculty Ui</title>
+	<%= javascript_include_tag :defaults %>
+	<%= stylesheet_link_tag "main.css" %>
+</head>
+<body bgcolor="#262626">
+
+<div class="main">
+	<div id="logo">
+		<%= image_tag "tcc-logo.jpg" %>Wavemaker
+	</div>
+	<div id="search_bar">
+		<% remote_form_for :search, @search, :update => "tabs-1", :url => { :controller => :ui, :action => :search} do |f| %>
+			Search:<%= f.text_field :q %>
+		<% end %>
+	</div>
+	<div id="gallery">
+		<table width="100%" height="100%">
+			<tr>
+				<td valign="top" style="background-color:white;" width="120px">
+		<div id="tabs" >
+			<ul>
+				<li class="remote_tab" onmouseover="this.className='remote_tab_active'" onmouseout="this.className='remote_tab'">
+					<%= link_to_remote "Public Data", :update => "tabs-1", :url => {:action => "public_data"} %>
+				</li>
+				<li class="remote_tab" onmouseover="this.className='remote_tab_active'" onmouseout="this.className='remote_tab'">
+					<%= link_to_remote "My Data", :update => "tabs-1", :url => {:action => "my_data" } %>
+				</li>
+				
+			</ul>
+			<div id="droppable" class="ui-widget-header">
+			
+			</div>
+		</td>
+		<td id="topper" valign="top">
+			
+			<div id="tabs-1">	
+				
+				<table>
+					<tr>
+
+				<% @public_courses.each_with_index do |course, indx| %>
+					<td valign="bottom">
+					<div id="draggable_my_course_<%= indx+1 %>" class="ui-draggable">
+						<%= image_tag course["pic_link"], :class => "draggable-image" %> 
+
+						<div class="picture-info-holder">
+							<%= link_to_remote course["title"], :update => "tabs-1", :url => { :action => :course_view, :id => course["_id"], :pub => 1 } %>
+						</div>
+
+					</div>
+					</td>
+				<% end %>
+				</tr>
+				</table>
+
+				<script type="text/javascript">
+				$(function() {
+
+						<% @public_courses.each_with_index do |course, indx| %>
+							$("#draggable_my_course_<%= indx+1%>").draggable({ revert: 'invalid' });
+						<% end %>
+				});
+				</script>
+			
+			</div>
+		</td>
+		</tr>
+		<tr>
+			<td>
+			
+			
+			</td>
+		</tr>
+		</div>
+		</table>
+	</div>
+</div>
+
+
+</body>
+</html>
