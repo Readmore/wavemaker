@@ -52,7 +52,7 @@ class Searcher
   end
   
   def distance_score(rows)
-    if rows[0].length > 3
+    if rows[0] && rows[0].length > 3
       #multi-word query
       min_dists = {}
       rows.collect {|row| min_dists[row[1]] = 100000}
