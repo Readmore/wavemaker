@@ -18,7 +18,11 @@
 	<div id="show_area">
 		<h3><%= @lesson.title %></h3>
 		<%= @lesson.post %>
-
+		
+		<% @cards.each do |card| %>
+			<%= render :partial => "lessons/display_note_card", :locals => {:c => card}%>
+		<% end %>
+		
 	</div>
 	<p align="right">
 	<% if @user %>

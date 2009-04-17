@@ -41,7 +41,7 @@ class Lesson < GitRecord
   def self.find(username, id, version="HEAD", pub=false)
     l = Lesson.new(username)
     l.attributes = GitRecord.find_by_version(username, id, version, pub)
-    if !l.attributes.empty?
+    if !l.attributes.empty? && l.attributes["cards"]
       l.attributes["cards"] = l.attributes["cards"].split(",").each {|str| str.strip!}
       #l.cards = l.cards.split(",").each {|str| str.strip!}
     end

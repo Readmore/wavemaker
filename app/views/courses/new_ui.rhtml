@@ -1,0 +1,42 @@
+<div id="new_card_ui">
+	<h3>New Course</h3>
+	<% if @course %>
+		
+		<div style="float:left; background-color:white;"> 
+			<%= render :partial => "form_remote" %>
+
+		</div>
+		<div id="lesson_collection_small">
+			<% if @lessons %>
+				Your Lessons
+				<table>
+					<tr>
+						<% @lessons.each_with_index do |lesson, indx| %>
+							<% if indx != 0 && indx % 2 == 0 %>
+								</tr><tr>
+							<% end %>
+								<td width="50%">
+									<td valign="bottom">
+									<div id="draggable_my_lesson_<%= lesson['_id'] %>" class="ui-draggable">
+
+										<%= image_tag "lesson.jpg", :class => "draggable-image" %> 
+										<div class="picture-info-holder-black">
+											<%= link_to_remote lesson["title"], :update => "tabs-1", :url => { :action => :lesson_view, :id => lesson["_id"] } %>
+										</div>
+										
+									</div>
+									
+									</td>
+									<%= draggable_element "draggable_my_lesson_#{lesson['_id']}", :revert => :true %>
+									
+						<% end %>
+					</tr>
+				</table>
+			<% end %>
+		</div>
+		
+		
+	<% end %>
+	<div id="clear">
+	</div>
+</div>

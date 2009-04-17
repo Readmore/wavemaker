@@ -1,7 +1,13 @@
 <table>
 	<tr>
+		<td colspan="6" style="color:white;"> Courses</td>
+	</tr>
+	<tr>
 		
 <% @my_courses.each_with_index do |course, indx| %>
+	<% if indx != 0 && indx % 6 == 0 %>
+		</tr><tr>
+	<% end %>
 	<td valign="bottom">
 	<div id="draggable_my_course_<%= indx+1 %>" class="ui-draggable">
 		
@@ -13,7 +19,49 @@
 	</div>
 	</td>
 <% end %>
-</tr>
+	</tr>
+	<tr>
+		<td colspan="6" style="color:white;">Lessons</td>
+	</tr>
+	<tr>
+	<% @my_lessons.each_with_index do |lesson, indx| %>
+		<% if indx != 0 && indx % 6 == 0 %>
+			</tr><tr>
+		<% end %>
+		<td valign="bottom">
+		<div id="draggable_my_lesson_<%= indx+1 %>" class="ui-draggable">
+
+			<%= image_tag "lesson.jpg", :class => "draggable-image" %> 
+			<div class="picture-info-holder">
+				<%= link_to_remote lesson["title"], :update => "tabs-1", :url => { :action => :lesson_view, :id => lesson["_id"] } %>
+			</div>
+
+		</div>
+		</td>
+	<% end %>
+	</tr>
+	<tr>
+		<td colspan="6" style="color:white;">Cards</td>
+	</tr>
+	<tr>
+		<% @my_cards.each_with_index do |card, indx| %>
+			<% if indx != 0 && indx % 6 == 0 %>
+				</tr><tr>
+			<% end %>
+			<td valign="bottom">
+			<div id="draggable_my_card_<%= indx+1 %>" class="ui-draggable">
+
+				<%= image_tag "card.png", :class => "draggable-image" %> 
+				<div class="picture-info-holder">
+					<%= link_to_remote card["title"], :update => "tabs-1", :url => { :action => :card_view, :id => card["_id"] } %>
+				</div>
+
+			</div>
+			</td>
+		<% end %>
+	</tr>
+	
+	
 </table>
 
 <script type="text/javascript">
@@ -21,6 +69,10 @@ $(function() {
 
 		<% @my_courses.each_with_index do |course, indx| %>
 			$("#draggable_my_course_<%= indx+1 %>").draggable({ revert: 'invalid' });
+		<% end %>
+		
+		<% @my_lessons.each_with_index do |lesson, indx| %>
+			$("#draggable_my_lesson_<%= indx+1 %>").draggable({ revert: 'invalid' });
 		<% end %>
 });
 </script>

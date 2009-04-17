@@ -1,0 +1,42 @@
+<div id="new_card_ui">
+	<h3>New Lesson</h3>
+	<% if @lesson %>
+		
+		<div style="float:left; background-color:white;"> 
+			<%= render :partial => "form_remote" %>
+
+		</div>
+		<div id="card_collection_small">
+			<% if @cards %>
+				Your Cards
+				<table>
+					<tr>
+						<% @cards.each_with_index do |card, indx| %>
+							<% if indx != 0 && indx % 2 == 0 %>
+								</tr><tr>
+							<% end %>
+								<td width="50%">
+									<td valign="bottom">
+									<div id="draggable_my_card_<%= card['_id'] %>" class="ui-draggable">
+
+										<%= image_tag "card.png", :class => "draggable-image" %> 
+										<div class="picture-info-holder-black">
+											<%= link_to_remote card["title"], :update => "tabs-1", :url => { :action => :card_view, :id => card["_id"] } %>
+										</div>
+										
+									</div>
+									
+									</td>
+									<%= draggable_element "draggable_my_card_#{card['_id']}", :revert => :true %>
+									
+						<% end %>
+					</tr>
+				</table>
+			<% end %>
+		</div>
+		
+		
+	<% end %>
+	<div id="clear">
+	</div>
+</div>

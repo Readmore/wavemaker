@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
   include LessonsHelper
-  layout "default"
+  #layout "default"
   
   before_filter :find_user, :login => [:index, :new, :edit, :create, :update, :destroy]
   
@@ -86,6 +86,19 @@ class LessonsController < ApplicationController
     end
   end
 
+  def new_ui
+    if @user
+      @lesson = Lesson.new(@user.login)
+      @cards = Card.view(@user.login, "cards_by_author", {:author => @user.login})
+    else
+      @lesson = nil
+    end
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @lesson }
+    end
+  end
+
   # GET /lessons/1/edit
   def edit
     if @user
@@ -108,10 +121,14 @@ class LessonsController < ApplicationController
       lesson = Lesson.save(@user.login, params[:lesson], pub)
     end
     
-    respond_to do |format|
-        flash[:notice] = 'lesson was successfully created.'
-        format.html { redirect_to lesson_url(lesson.attributes["_id"]) }
-        format.xml  { render :xml => lesson, :status => :created, :location => lesson }
+    if params[:form_type]
+      redirect_to :controller => "ui", :action => :lesson_view, :id => lesson.attributes["_id"]
+    else
+      respond_to do |format|
+          flash[:notice] = 'lesson was successfully created.'
+          format.html { redirect_to lesson_url(lesson.attributes["_id"]) }
+          format.xml  { render :xml => lesson, :status => :created, :location => lesson }
+      end
     end
   end
 
@@ -160,23 +177,32 @@ class LessonsController < ApplicationController
       @lesson = nil
     end
     respond_to do |format|
-      format.html { redirect_to(lesson_url) }
+      format.html { redirect_to(:controller => "ui", :action => "home") }
       format.xml  { head :ok }
     end
   end
   
-  def attachment
-  #  @post = Post.find(database_name, params[:id])
-  #    metadata = @post._attachments[params[:filename]]
-  #    data = Post.db(database_name).fetch_attachment(@post.id,
-  #      params[:filename])
-  #    send_data(data, {
-  #      :filename    => params[:filename],
-  #      :type        => metadata['content_type'],
-  #      :disposition => "inline",
-  #    })
-    
+  # Ajax Actions #############
+  
+  def add_card
+    text = ""
+     if params[:id]
+       id = params[:id].split("card_")[1]
+       card = Card.find(@user.login, id)
+       if card
+         text = "<li id='item_#{id}'><span style='cursor:move;'><b>#{card.title}</b></span> </li>"
+       end
+     end
+     render :partial => "sortable_cards", :locals => { :text => text }
   end
+  
+  def order 
+     render :text => "<input id='lesson_cards' type='hidden' value='#{params[:cards].uniq.join(",")}' name='lesson[cards]''/>"
+     
+     #render :text => "<%= f.hidden_field :lessons, :value = '#{params[:cards].join(",")}' %>"
+   end
+  
+  # End Ajax Actions #########
 
   private
   

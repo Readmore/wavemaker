@@ -1,0 +1,60 @@
+<% remote_form_for @course, :update => "tabs-1", :url => {:controller => "courses", :action => "create"}, :html => { :method => "POST"} do |f| %>
+	
+	<p>
+		<%= f.label "Title" %><br/>
+		<%= f.text_field :title %>
+	</p>
+	
+	<p>
+		<%= f.label "Course Description" %><br/>
+		<%= f.text_area :post, :rows => 6 %>
+	</p>
+	<p>
+		<%= f.label "Course Photo" %><br/>
+		<%= f.text_field :pic_link %>
+		
+	</p>
+	
+	<p>
+		<%= f.label "Tags - Separated by commas"%><br/>
+		<%= f.text_field :tags %>
+		<%= f.hidden_field "created_at" %>
+		<%= f.hidden_field :course_type, :value => "Syllabus" %>
+		<%= hidden_field "form_type", "remote" %>
+		
+	</p>
+
+	
+	<p>
+		<%= f.label "Save this as Public:" %>
+		<%= f.check_box :public, :selected => "selected" %>
+		
+	</p>
+	<ol id="status">
+		
+	</ol>
+	
+	<div id="lesson_list">
+		
+	</div>
+	<p>
+		<%= f.hidden_field "author" %>
+		<%= f.hidden_field "type" %>
+		<%= f.hidden_field "_id" %>
+		<%= f.hidden_field "_rev" %>
+		<%= hidden_field "id", @course.attributes["_id"] %>
+	</p>
+	
+	<%= f.submit "Save" %>
+			
+	
+<% end %>
+
+<p>
+	<div id="lesson_drop">
+		Drop Lessons Here:
+		
+	</div>
+	<%= drop_receiving_element :lesson_drop, :update => "status", :position => :bottom, :url => { :controller => "courses", :action => "add_lesson" } %>
+
+</p>

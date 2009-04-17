@@ -86,8 +86,9 @@ class UiController < ApplicationController
     if params[:course]
       @course = Course.find(@branch, params[:course]) 
     end
-
-    if !@lesson.attributes.empty? 
+    @cards = []
+    
+    if !@lesson.attributes.empty? && @lesson.cards
       num = @lesson.cards.length
       #parse lesson.post and find and card identifiers [fc:x] where x is the array index
       @identifiers = num.times.map {|x| "[fc:#{x}]"}
@@ -109,9 +110,9 @@ class UiController < ApplicationController
       #each time an identifier is found pull that card object from the array and insert 
         # the correct html for the card....
       #save this page to lesson post and the cards will render inline with the lesson
-      @identifiers.each_with_index do |idf, ndx|
-          @lesson.post.gsub!(idf, card_display(@cards[ndx]))
-      end 
+      #@identifiers.each_with_index do |idf, ndx|
+      #    @lesson.post.gsub!(idf, card_display(@cards[ndx]))
+      #end 
     end
 
   end
@@ -134,10 +135,13 @@ class UiController < ApplicationController
   end
   
   def my_data
-    #show the user's courses
+    #show the user's courses, lessons, and cards
      if @user
         @my_courses = Course.view(@user.login, "courses_by_author", {:author => @user.login})
+        @my_lessons = Lesson.view(@user.login, "lessons_by_author", {:author => @user.login})
+        @my_cards = Card.view(@user.login, "cards_by_author", {:author => @user.login})
       end
+      
   end
   
   def public_data 

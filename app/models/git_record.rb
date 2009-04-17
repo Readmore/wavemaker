@@ -65,7 +65,8 @@ class GitRecord
          if path[1]
          #Do actual File system manipulation
           #file_path = "#{@base_dir}/#{@repo_name}/public/users/#{username}/#{obj_type}s/#{file_name}"
-          file_path = "#{self.path_to_repo}/#{path[1]}"
+          #file_path = "#{self.path_to_repo}/#{path[1]}"
+          file_path = "#{repo.dir.to_s}/#{path[1]}"
           obj = self.read_hash(file_path)
          end
       end
@@ -128,7 +129,8 @@ class GitRecord
       path = obj.first[0].split(":")
       if path[1]
         #Do actual File system manipulation
-          full_path = "#{path_to_repo}/#{path[1]}"
+          #full_path = "#{self.path_to_repo}/#{username}/#{path[1]}"
+          full_path = "#{repo.dir.to_s}/#{path[1]}"
           repo.remove(full_path)
           repo.commit("removed #{id} from #{username} branch")
           res = true
@@ -239,6 +241,7 @@ class GitRecord
   
   def self.path_to_repo
     return "#{RAILS_ROOT}/#{repo_name}"
+    #return "#{RAILS_ROOT}/db/#{RAILS_ENV}/#{r_name}"
   end
   
   def self.write_hash(hash, file_name)

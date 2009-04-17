@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_filter :find_user, :login => [:new, :edit, :create, :update, :destroy]
-  layout "default"
+  layout "default", :except => [:new_ui]
   
   # GET /cards
   # GET /cards.xml
@@ -76,6 +76,18 @@ class CardsController < ApplicationController
       format.xml  { render :xml => @card }
     end
   end
+  
+  def new_ui  
+   if @user && @user.role != "student"
+      @card = Card.new(@user.login)
+    else
+      @card = nil
+    end
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @card }
+    end
+  end
 
   # GET /cards/1/edit
   def edit
@@ -96,12 +108,16 @@ class CardsController < ApplicationController
         pub = true
       end
       card = Card.save(@user.login, params[:card], pub)
+      
     end
-    
-    respond_to do |format|
-        flash[:notice] = 'card was successfully created.'
-        format.html { redirect_to card_url(card.attributes["_id"]) }
-        format.xml  { render :xml => card, :status => :created, :location => card }
+    if params[:form_type]
+      redirect_to :controller => "ui", :action => :card_view, :id => card.attributes["_id"]
+    else
+      respond_to do |format|
+          flash[:notice] = 'card was successfully created.'
+          format.html { redirect_to card_url(card.attributes["_id"]) }
+          format.xml  { render :xml => card, :status => :created, :location => card }
+      end
     end
   end
 
@@ -150,7 +166,7 @@ class CardsController < ApplicationController
       @card = nil
     end
     respond_to do |format|
-      format.html { redirect_to(cards_url) }
+      format.html { redirect_to(:controller => "ui", :action => "home") }
       format.xml  { head :ok }
     end
   end

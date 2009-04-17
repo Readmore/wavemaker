@@ -82,6 +82,19 @@ class CoursesController < ApplicationController
         format.xml  { render :xml => @course }
       end
     end
+    
+    def new_ui
+       if @user
+          @course = Course.new(@user.login)
+          @lessons = Lesson.view(@user.login, "lessons_by_author", {:author => @user.login})
+        else
+          @course = nil
+        end
+        respond_to do |format|
+          format.html # new.html.erb
+          format.xml  { render :xml => @course }
+        end  
+    end
 
     # GET /courses/1/edit
     def edit
@@ -105,10 +118,14 @@ class CoursesController < ApplicationController
         course = Course.save(@user.login, params[:course], pub)
       end
 
-      respond_to do |format|
-          flash[:notice] = 'lesson was successfully created.'
-          format.html { redirect_to course_url(course.attributes["_id"]) }
-          format.xml  { render :xml => course, :status => :created, :location => course }
+      if params[:form_type]
+        redirect_to :controller => "ui", :action => :course_view, :id => course.attributes["_id"]
+      else
+        respond_to do |format|
+            flash[:notice] = 'lesson was successfully created.'
+            format.html { redirect_to course_url(course.attributes["_id"]) }
+            format.xml  { render :xml => course, :status => :created, :location => course }
+        end
       end
     end
 
@@ -157,24 +174,34 @@ class CoursesController < ApplicationController
         @course = nil
       end
       respond_to do |format|
-        format.html { redirect_to(course_url) }
+        format.html { redirect_to(:controller => "ui", :action => "home") }
         format.xml  { head :ok }
       end
     end
 
-    def attachment
-    #  @post = Post.find(database_name, params[:id])
-    #    metadata = @post._attachments[params[:filename]]
-    #    data = Post.db(database_name).fetch_attachment(@post.id,
-    #      params[:filename])
-    #    send_data(data, {
-    #      :filename    => params[:filename],
-    #      :type        => metadata['content_type'],
-    #      :disposition => "inline",
-    #    })
-
-    end
-
+   # Ajax Actions ###############
+   
+   def add_lesson
+     text = ""
+     if params[:id]
+       id = params[:id].split("lesson_")[1]
+       lesson = Lesson.find(@user.login, id)
+       if lesson
+         text = "<li id='item_#{id}'><span style='cursor:move;'><b>#{lesson.title}</b></span> </li>"
+       end
+     end
+     render :partial => "sortable_lessons", :locals => { :text => text }
+   end
+   
+   def order 
+     #render :text => params.inspect
+     render :text => "<input id='course_lessons' type='hidden' value='#{params[:status].uniq.join(",")}' name='course[lessons]''/>"
+     
+     #render :text => "<%= f.hidden_field :lessons, :value = '#{params[:status].join(",")}' %>"
+   end
+   
+   # End Ajax Actions ##########
+   
     private
 
     def lesson_display(lesson)
