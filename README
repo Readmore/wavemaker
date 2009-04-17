@@ -10,7 +10,7 @@ Wavemaker is an online education repository that uses Git as it's back-end stora
   
 2. Setup your database with 
 
-	$ rake:schema:load
+	$ rake db:schema:load      
 
 3. Now start up the console 
 	
