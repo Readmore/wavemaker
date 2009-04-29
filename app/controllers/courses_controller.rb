@@ -197,7 +197,26 @@ class CoursesController < ApplicationController
      #render :text => params.inspect
      render :text => "<input id='course_lessons' type='hidden' value='#{params[:status].uniq.join(",")}' name='course[lessons]''/>"
      
-     #render :text => "<%= f.hidden_field :lessons, :value = '#{params[:status].join(",")}' %>"
+   end
+   
+   def check_lessons
+     if params["items"] && params["items"]  != ""
+       ids = params["items"].split(",")
+       lessons = []
+       ids.each do |id|
+         if id != ""
+           id = id.split("item_")[1]
+           lesson = Lesson.find(@user.login, id)
+           if lesson
+             lessons << lesson._id
+           end
+         end
+       end
+       
+       render :text => "<input id='course_lessons' type='hidden' value='#{lessons.uniq.join(",")}' name='course[lessons]''/>"
+     else
+       render :text => ""
+     end
    end
    
    # End Ajax Actions ##########

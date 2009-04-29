@@ -37,6 +37,7 @@
 				<% if @user.role != "student" && !@course.author.include?(@user.login) %>
 					<%= link_to "Clone", :action => :clone, :id => @course._id, :version => @version %> |
 				<% end %>
+				<%= link_to "Student Link", :controller => :pub, :action => "course", :id => @course._id %> |
 			<% elsif @course.author.include?(@user.login) %>
 				<%= link_to "Edit", :action => :edit, :id => @course._id %> |
 				<%= link_to "Destroy", course_path(@course._id), :method => :delete %>

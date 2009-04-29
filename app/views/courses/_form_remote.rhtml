@@ -57,4 +57,22 @@
 	</div>
 	<%= drop_receiving_element :lesson_drop, :update => "status", :position => :bottom, :url => { :controller => "courses", :action => "add_lesson" } %>
 
-</p>
+
+
+		<script>
+			$j("#lesson_drop").mouseleave(function(){
+		      str = "";
+		      $j.each($j('ol:status').children('li'), function() { str = str + this.id + ',';});
+		    });
+
+		</script>
+
+		<%= periodically_call_remote :url => {:action => "check_lessons"}, :frequency => '5', :update => "lesson_list", :with => "'items=' + str" %>
+
+	</p>
+	<script>
+		$j(document).ready(function () {
+	    	var str = "";
+		});
+
+	</script>

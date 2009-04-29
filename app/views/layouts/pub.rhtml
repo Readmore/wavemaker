@@ -1,0 +1,30 @@
+<html>
+	<head>
+	 	<%= javascript_include_tag :defaults %>
+	 	<%= stylesheet_link_tag "main" %>
+	 	<title>Wavemaker</title>
+	</head>
+	
+	<body align="center">
+		<div id="header"> 
+			<table><tr><td width="75%">
+			<h1>WaveMaker</h1>
+			</td>
+			<td>
+			<span align="right">
+				<% form_for :search, @search, :url => { :controller => :search, :action => :index} do |f| %>
+					Search:<%= f.text_field :q %>
+				<% end %>
+			</span>
+			</td></tr></table>
+			<hr/>
+		</div>
+		<div id="main_body">
+			<%= yield %>
+		</div>
+		<div id="footer" align="center"> 
+			<hr/>
+			a work in progress
+		</div>
+	</body>
+</html>

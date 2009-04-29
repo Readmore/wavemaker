@@ -4,14 +4,40 @@
 	<title>Wavemaker - Faculty Ui</title>
 	<%= javascript_include_tag :defaults %>
 	<%= stylesheet_link_tag "main.css" %>
-	
+	<%= javascript_include_tag "jquery-1.3.2.min.js" %>
 	<script type="text/javascript">
-	function myList(){
-		var myCards = document.getElementById('cards').childNodes;
-		if(myCards != '')
-			alert("You entered: " + myCards.value);
-	}
+	var str = "";
+	
+	function initialiseStateFromURL() {
+	    initialTab = window.location.hash;		
+		openTab(initialTab);
+		//pollHash(initialTab);
+	};
+	
+	 function pollHash(initialTab) {
+
+	     if (window.location.hash==recentHash) {
+	       return; // Nothing's changed since last polled.
+	     }
+	     recentHash = window.location.hash;
+
+	     // URL has changed, update the UI accordingly.
+	     openTab(initialTab);
+
+	   };
+	
+	function openTab(tab_name) {
+		$j("#tabs-1").load("/" + tab_name);
+		//alert(tab_name + " should be loaded");
+	};
 	</script>
+	
+	  <script>
+	     var $j = jQuery.noConflict();
+		 var recentHash = "";
+		var initialTab = window.location.hash;
+	   </script>
+	
 </head>
 <body bgcolor="#262626">
 
@@ -30,11 +56,11 @@
 				<td valign="top" style="background-color:white;" width="120px">
 		<div id="tabs" >
 			<ul>
-				<li class="remote_tab" onmouseover="this.className='remote_tab_active'" onmouseout="this.className='remote_tab'">
-					<%= link_to_remote "Public Data", :update => "tabs-1", :url => {:action => "public_data"} %>
+				<li class="remote_tab" onmouseover="this.className='remote_tab_active'" onmouseout="this.className='remote_tab'" onclick="window.location.hash = 'public_data'">
+					<%= link_to_remote image_tag("public_data_button.png", :border => "0"), :update => "tabs-1", :url => {:action => "public_data"} %>
 				</li>
-				<li class="remote_tab" onmouseover="this.className='remote_tab_active'" onmouseout="this.className='remote_tab'">
-					<%= link_to_remote "My Data", :update => "tabs-1", :url => {:action => "my_data" } %>
+				<li class="remote_tab" onmouseover="this.className='remote_tab_active'" onmouseout="this.className='remote_tab'" onclick="window.location.hash = 'my_data'">
+					<%= link_to_remote image_tag("my_data_button.png", :border=>"0"), :update => "tabs-1", :url => {:action => "my_data" } %>
 				</li>
 				
 			</ul>

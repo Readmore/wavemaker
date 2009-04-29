@@ -1,3 +1,9 @@
+<script type="text/javascript">
+	//$j(document).ready(function () {	 	
+	//});
+
+</script>
+
 <% remote_form_for @lesson, :update => "tabs-1", :url => {:controller => "lessons", :action => "create"}, :html => { :method => "POST"} do |f| %>
 	
 	<p>
@@ -22,7 +28,7 @@
 	<div id="card_list">
 		
 	</div>
-	
+		
 	<p>
 		<%= f.label "Save this as Public:" %>
 		<%= f.check_box :public, :selected => "selected" %>
@@ -39,8 +45,8 @@
 		<%= hidden_field "id", @lesson.attributes["_id"] %>
 		<%= hidden_field "form_type", "remote" %>
 	</p>
-	
 	<%= f.submit "Save" %>
+	
 			
 	
 <% end %>
@@ -50,10 +56,18 @@
 		Drop Cards Here:
 		
 	</div>
-	<%= drop_receiving_element :lesson_drop, :update => "cards", :position => :bottom, :url => { :controller => "lessons", :action => "add_card" } %>
+	<%= drop_receiving_element :lesson_drop, :update => "cards", :position => :bottom, :url => { :controller => "lessons", :action => "add_card" } %>	
 	
 	
-	
-	
+	<script type="text/javascript">
+		$j("#lesson_drop").mouseleave(function(){ 
+		  str = "";
+	      $j.each($j('ol:cards').children('li'), function() { str = str + this.id + ',';});
+	    });
+	 
+	</script>
+
+		<%= periodically_call_remote :url => {:action => "check_cards"}, :frequency => '5', :update => "card_list", :with => "'items=' + str" %>
+
 
 </p>

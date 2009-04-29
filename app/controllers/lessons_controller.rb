@@ -90,6 +90,7 @@ class LessonsController < ApplicationController
     if @user
       @lesson = Lesson.new(@user.login)
       @cards = Card.view(@user.login, "cards_by_author", {:author => @user.login})
+      @check = true
     else
       @lesson = nil
     end
@@ -201,6 +202,27 @@ class LessonsController < ApplicationController
      
      #render :text => "<%= f.hidden_field :lessons, :value = '#{params[:cards].join(",")}' %>"
    end
+  
+  def check_cards 
+    if params["items"] && params["items"]  != ""
+      ids = params["items"].split(",")
+      cards = []
+      ids.each do |id|
+        if id != ""
+          id = id.split("item_")[1]
+          card = Card.find(@user.login, id)
+          if card
+            cards << card._id
+          end
+        end
+      end
+      
+      render :text => "<input id='lesson_cards' type='hidden' value='#{cards.uniq.join(",")}' name='lesson[cards]''/>"
+      #render :text => cards.join(",")
+    else
+      render :text => ""
+    end
+  end
   
   # End Ajax Actions #########
 
