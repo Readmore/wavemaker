@@ -27,7 +27,7 @@
 				<td><%= link_to_remote lesson.title, :update => "tabs-1", :url => { :action => "lesson_view", :id => lesson._id, :course => @course._id } %></td>
 			<% end %>
 	        <td><%= lesson.author.to_s.capitalize %></td>
-			<td><%= lesson.card_type %></td>
+			<td><%= lesson.card_type ? lesson.card_type : lesson.lesson_type %></td>
 	  <tr>
 	  <% end %>
 	</table>

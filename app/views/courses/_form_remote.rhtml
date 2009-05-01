@@ -10,8 +10,9 @@
 		<%= f.text_area :post, :rows => 6 %>
 	</p>
 	<p>
-		<%= f.label "Course Photo" %><br/>
-		<%= f.text_field :pic_link %>
+		<!-- <%= f.label "Course Photo" %><br/> 
+		<%= f.text_field :pic_link %> //-->
+		<%= f.hidden_field :pic_link, :value => "course.jpg" %>
 		
 	</p>
 	
@@ -57,22 +58,16 @@
 	</div>
 	<%= drop_receiving_element :lesson_drop, :update => "status", :position => :bottom, :url => { :controller => "courses", :action => "add_lesson" } %>
 
-
-
-		<script>
-			$j("#lesson_drop").mouseleave(function(){
-		      str = "";
+		
+		<script type="text/javascript">
+			$j("#lesson_drop").mouseleave(function(){ 
+			  str = "";
 		      $j.each($j('ol:status').children('li'), function() { str = str + this.id + ',';});
-		    });
+		      $j("#lesson_list").load("/courses/check_lessons", { 'items': str } );
 
+			});
 		</script>
 
-		<%= periodically_call_remote :url => {:action => "check_lessons"}, :frequency => '5', :update => "lesson_list", :with => "'items=' + str" %>
+
 
 	</p>
-	<script>
-		$j(document).ready(function () {
-	    	var str = "";
-		});
-
-	</script>

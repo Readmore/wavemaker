@@ -1,8 +1,3 @@
-<script type="text/javascript">
-	//$j(document).ready(function () {	 	
-	//});
-
-</script>
 
 <% remote_form_for @lesson, :update => "tabs-1", :url => {:controller => "lessons", :action => "create"}, :html => { :method => "POST"} do |f| %>
 	
@@ -63,11 +58,22 @@
 		$j("#lesson_drop").mouseleave(function(){ 
 		  str = "";
 	      $j.each($j('ol:cards').children('li'), function() { str = str + this.id + ',';});
+	      $j("#card_list").load("/lessons/check_cards", { 'items': str } );
+		
+		});
+	
+	</script>
+	
+	<script type="text/javascript">
+		$j(".remove_button").bind("click", function(e){ 
+	      $j(this).remove();
+		  str = "";
+	      $j.each($j('ol:status').children('li'), function() { str = str + this.id + ',';});
+	      $j("#card_list").load("/lessons/check_cards", { 'items': str } );
 	    });
-	 
 	</script>
 
-		<%= periodically_call_remote :url => {:action => "check_cards"}, :frequency => '5', :update => "card_list", :with => "'items=' + str" %>
+	
 
 
 </p>

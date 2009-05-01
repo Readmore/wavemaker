@@ -191,7 +191,7 @@ class LessonsController < ApplicationController
        id = params[:id].split("card_")[1]
        card = Card.find(@user.login, id)
        if card
-         text = "<li id='item_#{id}'><span style='cursor:move;'><b>#{card.title}</b></span> </li>"
+         text = "<li id='item_#{id}'><span style='cursor:move;'><b>#{card.title}</b> </span> </li>"
        end
      end
      render :partial => "sortable_cards", :locals => { :text => text }
