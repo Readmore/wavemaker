@@ -111,6 +111,23 @@ class LessonsController < ApplicationController
 
   end
 
+  def edit_ui
+    # GET /lessons/1/edit
+    if @user
+      @lesson = Lesson.find(@user.login, params[:id])
+      @lesson.cards = @lesson.cards.join(",")
+      @cards = Card.view(@user.login, "cards_by_author", {:author => @user.login})
+      @check = true
+    else
+      @lesson = nil
+    end
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @lesson }
+    end
+    
+  end
+
   # POST /lesson
   # POST /lesson.xml
   def create
@@ -157,7 +174,7 @@ class LessonsController < ApplicationController
         pub = true
       end
 
-      @lesson.save(@user.login, params[:lesson], pub)
+      @lesson = Lesson.save(@user.login, params[:lesson], pub)
     else
       @lesson = nil
     end

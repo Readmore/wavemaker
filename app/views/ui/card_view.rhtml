@@ -40,7 +40,7 @@
 					<%= link_to "Clone", :action => :clone, :id => @card._id, :version => @version %> |
 				<% end %>
 			<% elsif @card.author.include?(@user.login) %>
-				<%= link_to "Edit", :action => :edit, :id => @card._id %> |
+				<%= link_to_remote "Edit", :update => "tabs-1", :url => { :controller => :cards, :action => :edit_ui, :id => @card._id } %> |				
 				<%= link_to "Destroy", card_path(@card._id), :method => :delete %>
 			<% end %>
 		<% end %>

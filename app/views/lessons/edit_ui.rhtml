@@ -1,11 +1,11 @@
 <div id="new_card_ui">
-	<h3>New Lesson</h3>
+	<h3>Edit Lesson</h3>
 	<% if @lesson %>
 		
 		<div style="float:left; background-color:white;"> 
-			<% remote_form_for @lesson, :update => "tabs-1", :url => {:controller => "lessons", :action => "create"}, :html => { :method => "POST"} do |f| %>
+			<% remote_form_for @lesson, :update => "tabs-1", :url => {:controller => "lessons", :action => "update_ui"}, :html => { :method => "POST"} do |f| %>
 			
-			<%= render :partial => "form_remote", :locals => {:f => f } %>
+			<%= render :partial => "form_remote", :locals => {:f => f} %>
 			<% end %>
 		</div>
 		<div id="card_collection_small">

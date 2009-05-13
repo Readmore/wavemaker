@@ -1,5 +1,4 @@
-<% remote_form_for @card, :update => "tabs-1", :url => {:controller => "cards", :action => "create"}, :html => { :method => "POST"} do |f| %>
-	
+
 	<p>
 		<%= f.label "Card Type" %><br/>
 		<%= f.select :card_type, {"Note" => "Note", "Embed" => "Embed", "Video" => "Video", "Audio" => "Audio", "Image" => "Image"} %>
@@ -40,8 +39,5 @@
 		<%= hidden_field "form_type", "remote" %>
 	</p>
 	
-	<%= f.submit "Save" %>
-		
 		
 	
-<% end %>

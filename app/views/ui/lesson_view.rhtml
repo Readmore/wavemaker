@@ -31,7 +31,7 @@
 				<%= link_to "Clone", :action => :clone, :id => @lesson._id, :version => @version %> |
 			<% end %>
 		<% elsif @lesson.author.include?(@user.login) %>
-		 	<%= link_to "Edit", :action => :edit, :id => @lesson._id %> |
+		 	
 			<%= link_to "Destroy", lesson_path(@lesson._id), :method => :delete %>
 		<% end %>
 	<% end %>

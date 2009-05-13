@@ -1,8 +1,8 @@
 <div id="new_card_ui">
-	<h3>New Card</h3>
+	<h3>Edit Card</h3>
 	<% if @card %>
 		<p> 
-			<% remote_form_for @card, :update => "tabs-1", :url => {:controller => "cards", :action => "create"}, :html => { :method => "POST"} do |f| %>
+			<% remote_form_for @card, :update => "tabs-1", :url => {:controller => "cards", :action => "update_ui"}, :html => { :method => "POST"} do |f| %>
 				<%= render :partial => "cards/form_remote", :locals => {:f => f} %>
 				<%= f.submit "Save" %>
 			<% end %>

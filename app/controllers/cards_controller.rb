@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_filter :find_user, :login => [:new, :edit, :create, :update, :destroy]
-  layout "default", :except => [:new_ui]
+  layout "default", :except => [:new_ui, :edit_ui]
   
   # GET /cards
   # GET /cards.xml
@@ -88,6 +88,14 @@ class CardsController < ApplicationController
       format.xml  { render :xml => @card }
     end
   end
+  
+  def edit_ui
+    if @user && @user.role != "student"
+      @card = Card.find(@user.login, params[:id])
+    else
+      @card = nil
+    end
+  end
 
   # GET /cards/1/edit
   def edit
@@ -137,24 +145,28 @@ class CardsController < ApplicationController
 
   # PUT /cards/1
   # PUT /cards/1.xml
-  def update
+  def update_ui
     if @user && @user.role != "student"
-      @card = Card.find(@user.login, params[:id])
+      @card = Card.find(@user.login, params[:card]["_id"])
       pub = false
-      if params[:public] == "1"
+      if params[:card][:public] == "1"
         pub = true
       end
 
-      @card.save(@user.login, params[:card], pub)
+      @card = Card.save(@user.login, params[:card], pub)
     else
       @card = nil
     end
     
-    respond_to do |format|
-        flash[:notice] = 'card was successfully updated.'
-        format.html { redirect_to card_url(@card.attributes["_id"]) }
-        format.xml  { head :ok }
-    end
+    #if params["form_type"]
+      redirect_to :controller => "ui", :action => :card_view, :id => @card.attributes["_id"]
+    #else
+    #  respond_to do |format|
+    #      flash[:notice] = 'card was successfully updated.'
+    #      format.html { redirect_to card_url(@card.attributes["_id"]) }
+    #      format.xml  { head :ok }
+    #  end
+    #end
   end
 
   # DELETE /cards/1

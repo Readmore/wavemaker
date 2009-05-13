@@ -85,7 +85,11 @@ class Course < GitRecord
     # that consists of  SHA:path/to/file
     # e.g. "03c0d83cd2e9e1195fb3eb60d6604220fde13da7:#{username}/Lesson/bfe057d0-d483-012b-7578-002332ced2f8"
     # this will allow for direct versioning and allow published lessons and courses to have static content
-    if pub
+    if !attributes["lessons"]
+      attributes["lessons"] = []
+    end
+    
+    if pub 
       # make public lessons for all public courses
        attributes["lessons"] = Course.set_lessons_public(username, attributes["lessons"].split(",").each {|str| str.strip!})
     end

@@ -39,7 +39,7 @@
 				<% end %>
 				<%= link_to "Student Link", :controller => :pub, :action => "course", :id => @course._id %> |
 			<% elsif @course.author.include?(@user.login) %>
-				<%= link_to "Edit", :action => :edit, :id => @course._id %> |
+				
 				<%= link_to "Destroy", course_path(@course._id), :method => :delete %>
 			<% end %>
 		<% end %>

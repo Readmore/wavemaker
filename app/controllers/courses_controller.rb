@@ -153,7 +153,7 @@ class CoursesController < ApplicationController
           pub = true
         end
 
-        @course.save(@user.login, params[:course], pub)
+        @course = Course.save(@user.login, params[:course], pub)
       else
         @course = nil
       end
