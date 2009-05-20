@@ -1,0 +1,43 @@
+<ul id="user_tree" class="filetree">
+	<li class="closed"><span class="folder">Courses</span>
+	<ul>
+		<li>
+			<%= button_to_remote "New Course", :update => "tabs-1", :url => { :controller => :courses, :action => :new_ui } %>
+			
+		</li>
+	<% @my_courses.each do |course| %>
+			<li>
+				<span class="file"><%= link_to_remote course["title"][0..20], :update => "tabs-1", :url => { :action => :course_view, :id => course["_id"] } %>
+				</span>
+			</li>
+	<% end %>
+	</ul>
+	</li>
+	<li class="closed"><span class="folder">Lessons</span>
+		<ul>
+			<li>
+				<%= button_to_remote "New Lesson", :update => "tabs-1", :url => {:controller => :lessons, :action => :new_ui} %>
+			</li>
+			<% @my_lessons.each do |lesson| %>
+					<li>
+						<span class="file"><%= link_to_remote lesson["title"][0..20], :update => "tabs-1", :url => { :action => :lesson_view, :id => lesson["_id"] } %>
+						</span>
+					</li>
+			<% end %>
+		</ul>
+	</li>
+	<li class="closed"><span class="folder">Cards</span>
+		<ul>
+			<li>
+				<%= button_to_remote "New Card", :update => "tabs-1", :url => {:controller => :cards, :action => :new_ui } %> 
+			</li>
+		<% @my_cards.each do |card| %>
+				<li>
+					<span class="file"><%= link_to_remote card["title"][0..20], :update => "tabs-1", :url => { :action => :card_view, :id => card["_id"] } %>
+					</span>
+				</li>
+		<% end %>
+		
+		</ul>
+	</li>
+</ul>

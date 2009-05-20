@@ -6,6 +6,11 @@ class UiController < ApplicationController
     #@public_cards = Card.view("master", "cards_by_public")
     
     @public_courses = Course.view("master", "courses_by_public")
+     if @user
+        @my_courses = Course.view(@user.login, "courses_by_author", {:author => @user.login})
+        @my_lessons = Lesson.view(@user.login, "lessons_by_author", {:author => @user.login})
+        @my_cards = Card.view(@user.login, "cards_by_author", {:author => @user.login})
+     end
   end
   
   def search

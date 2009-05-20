@@ -301,6 +301,10 @@ body {}
 	clear:both;
 }
 
+#user_menu {
+	font-size:12px;
+}
+
 #gallery { width: 100%; height:14em; } * html #gallery { height: 12em; } /* IE6 */
 			.gallery.custom-state-active { background: #eee; }
 			.gallery li {  width: 96px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }

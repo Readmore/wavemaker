@@ -31,7 +31,7 @@
 				<%= link_to "Clone", :action => :clone, :id => @lesson._id, :version => @version %> |
 			<% end %>
 		<% elsif @lesson.author.include?(@user.login) %>
-		 	
+		 	<%= link_to_remote "Edit", :update => "tabs-1", :url => { :controller => :lessons, :action => :edit_ui, :id => @lesson._id } %> |
 			<%= link_to "Destroy", lesson_path(@lesson._id), :method => :delete %>
 		<% end %>
 	<% end %>
