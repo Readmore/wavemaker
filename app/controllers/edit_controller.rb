@@ -178,7 +178,7 @@ class EditController < ApplicationController
     #update the page with the newly created note
     render :update do |page|
       page.replace_html("lesson_display_area", :partial => "edit/lesson_refresh", :locals => {:lesson => lesson, :cards => cards})
-      page.visual_effect(:highlight, "card_#{card._id}", :duration => 3.0)
+      #page.visual_effect(:highlight, "card_#{card._id}", :duration => 3.0)
     end
    
   end
@@ -271,7 +271,7 @@ class EditController < ApplicationController
     #update the page with the newly created note
     render :update do |page|
       page.replace_html("lesson_display_area", :partial => "edit/lesson_refresh", :locals => {:lesson => lesson, :cards => cards})
-      page.visual_effect(:highlight, "card_#{card._id}", :duration => 3.0)
+      #page.visual_effect(:highlight, "card_#{card._id}", :duration => 3.0)
     end
     
   end
