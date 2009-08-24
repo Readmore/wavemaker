@@ -1,0 +1,33 @@
+<% if @course %>
+<div id="course_small_display_area">
+	<div id="course_small_picture">
+		<%= image_tag @course.pic_link, :class => "course_small_image" %>
+	</div>
+	<div id="course_small_info">
+		<h3>
+			<%= link_to @course.title, :controller => "pub", :action => "course", :id => @course._id %>
+			<br/>
+			<font size="smaller">&nbsp;by <%= @course.author %></font></h3>
+	</div>
+</div>
+<hr/>
+<% end %>
+<div id="lesson_display_area">
+	<div id="show_area">
+		<h3><%= @lesson.title %></h3>
+		<%= @lesson.post %>
+		
+		<% @cards.each_with_index do |card, indx| %>
+			<%= render :partial => "floating_add_bar", :locals => {:position => indx, :item => card, :lesson => @lesson } %>
+			<div id="card_<%= card._id %>" class="card_<%= card.card_type.downcase %>_display">
+				<%= render :partial => "lessons/display_note_card", :locals => {:c => card} %>
+				<br/>
+				<%= link_to_remote "Remove Card", :url => {:controller => "edit", :action => "remove_card", :id => card._id, :lesson_id => @lesson._id, :pos => indx }, :update => "card_#{card._id}" %>
+			</div>
+			<div class="clear"></div>
+		<% end %>
+		
+	</div>
+	<div id="main_item_add_location" style="display:none;"> </div>
+	<%= render :partial => "item_add_bar", :locals => {:lesson => @lesson  } %>
+</div>

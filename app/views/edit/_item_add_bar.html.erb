@@ -1,0 +1,12 @@
+<div class="item_add_bar">
+	Add: <%= link_to_remote "Note", :url => {:action => "add_card", :id => lesson._id, :ctype => "note" },
+	 		:update => "main_item_add_location",
+	 		:complete => visual_effect(:blind_down, "main_item_add_location", :duration => 0.4) %>
+	| <%= link_to_remote "Image", :url => {:action => "add_card", :id => lesson._id, :ctype => "image" },
+	 		:update => "main_item_add_location",
+			:complete => visual_effect(:blind_down, "main_item_add_location", :duration => 0.4) %>
+	| <%= link_to_remote "Embed", :url => {:action => "add_card", :id => lesson._id, :ctype => "embed" },
+			:update => "main_item_add_location",
+			:complete => visual_effect(:blind_down, "main_item_add_location", :duration => 0.4) %>  
+
+</div>

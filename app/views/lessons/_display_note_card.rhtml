@@ -1,4 +1,4 @@
-<div class="card_<%= c.card_type.downcase %>_display">
+
 	<h4>
 	<% if c.pub %>
 		<%= link_to c.title, :controller => "cards", :action => "show", :id => c._id, :pub => "1", :version => c.version %>
@@ -33,5 +33,5 @@
 		<% end %>
 		</p>
 		<%= render :partial => "layouts/show_tags", :locals => {:tags => c.tags.split(",") }%>
-</div>
+
 	

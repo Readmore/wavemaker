@@ -1,0 +1,12 @@
+<div id="show_area">
+	<h3><%= lesson.title %></h3>
+	<%= lesson.post %>
+	
+	<% cards.each_with_index do |card, indx| %>
+		<%= render :partial => "floating_add_bar", :locals => {:position => indx, :item => card, :lesson => lesson } %>
+		<%= render :partial => "lessons/display_note_card", :locals => {:c => card}%>
+	<% end %>
+	
+</div>
+<div id="main_item_add_location" style="display:none;"> </div>
+<%= render :partial => "item_add_bar", :locals => {:lesson => lesson  } %>

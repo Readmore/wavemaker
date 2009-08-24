@@ -1,4 +1,4 @@
-<div class="card_embed_display">
+<div id="card_<%= c._id %>" class="card_embed_display">
 	<h4><%= link_to c.title, :controller => "cards", :action => "show", :id => c._id, :pub => "1", :version => c.version %><br/>
 		<font size="smaller">&nbsp;by <%= link_to c.author, :controller => "users", :action => "public_data" %> on <%= c.created_at %> </font></h4>
 		<p><%= c.post %></p>

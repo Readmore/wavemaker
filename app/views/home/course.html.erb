@@ -1,0 +1,26 @@
+<div class="course_display_area">
+	<h3>Course Display</h3>
+
+	<div id="show_area">
+		<h3><%= @course.title %><br/>
+			<font size="smaller">&nbsp;by <%= @course.author %> - <%= @course.created_at %></h3>
+		<%= @course.post %>
+		<ul>
+		<% @lessons.each do |lesson| %>
+				<li> <%= link_to lesson.title, :controller => "home", :action => "lesson", :id => lesson._id %> </li>
+		<% end %>
+		</ul>
+
+	</div>
+	<%= link_to "Dashboard", :controller => "home", :action => "dashboard" %>
+	<% if @user %>
+		<% if @branch == "master" %>
+			<% if @user.role != "student" && !@course.author.include?(@user.login) %>
+				| <%= link_to "Clone", :action => :clone, :id => @course._id, :version => @version %>
+			<% end %>
+		<% elsif @course.author.include?(@user.login) %>
+			| <%= link_to "Edit", :action => :edit, :id => @course._id %> |
+			<%= link_to "Destroy", course_path(@course._id), :method => :delete %>
+		<% end %>
+	<% end %>
+</div>

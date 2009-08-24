@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090327184831) do
+ActiveRecord::Schema.define(:version => 20090820204557) do
 
   create_table "filelists", :force => true do |t|
     t.string   "path"
@@ -24,6 +24,20 @@ ActiveRecord::Schema.define(:version => 20090327184831) do
   end
 
   add_index "filelists", ["repo", "record_type"], :name => "file_repo_type_indx"
+
+  create_table "images", :force => true do |t|
+    t.integer  "parent_id"
+    t.string   "content_type"
+    t.string   "filename"
+    t.string   "thumbnail"
+    t.integer  "size"
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "images", ["parent_id"], :name => "image_parent_indx"
 
   create_table "lessons", :force => true do |t|
     t.datetime "created_at"

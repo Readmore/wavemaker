@@ -19,7 +19,7 @@
 						<% end %>
 						<ul>
 							<% @my_cards.each do |card| %>
-							<li> <%= link_to card["title"], :controller => "cards", :action => :show, :id => card["_id"] %> </li>	
+							<li> <%= link_to card["title"], :controller => "edit", :action => "card", :id => card["_id"] %> </li>	
 							<% end %>
 						</ul>
 					</td>
@@ -30,7 +30,7 @@
 						<% end %>
 						<ul>
 							<% @my_lessons.each do |lesson| %>
-							<li> <%= link_to lesson["title"], :controller => "lessons", :action => :show, :id => lesson["_id"] %> </li>	
+							<li> <%= link_to lesson["title"], :controller => "edit", :action => "lesson", :id => lesson["_id"] %> </li>	
 							<% end %>
 						</ul>
 					</td>
@@ -41,7 +41,7 @@
 						<% end %>
 						<ul>
 							<% @my_courses.each do |course| %>
-								<li> <%= link_to course["title"], :controller => "courses", :action => :show, :id => course["_id"] %></li>
+								<li> <%= link_to course["title"], :controller => "edit", :action => "course", :id => course["_id"] %></li>
 							<% end %>
 					</td>
 				</tr>
@@ -58,7 +58,7 @@
 					Cards<br/>
 					<ul>
 						<% @public_cards.each do |card| %>
-							<li><%= link_to card["title"], :controller => "cards", :action => :show, :id => card["_id"], :pub => "1" %> </li>	
+							<li><%= link_to card["title"], :controller => "home", :action => :card, :id => card["_id"], :pub => "1" %> </li>	
 						<% end %>
 					</ul>
 				</td>
@@ -66,7 +66,7 @@
 					Lessons<br/>
 					<ul>
 						<% @public_lessons.each do |lesson| %>
-							<li><%= link_to lesson["title"], :controller => "lessons", :action => :show, :id => lesson["_id"], :pub => "1" %></li>
+							<li><%= link_to lesson["title"], :controller => "home", :action => :lesson, :id => lesson["_id"], :pub => "1" %></li>
 						<% end %>
 					</ul>
 				</td>
@@ -74,7 +74,7 @@
 					Courses<br/>
 					<ul>
 						<% @public_courses.each do |course| %>
-							<li><%= link_to course["title"], :controller => "courses", :action => :show, :id => course["_id"], :pub => "1" %></li>
+							<li><%= link_to course["title"], :controller => "home", :action => :course, :id => course["_id"], :pub => "1" %></li>
 						<% end %>
 					</ul>
 				</td>

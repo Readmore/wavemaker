@@ -1,0 +1,181 @@
+body{
+	color:#444;
+}
+
+a{
+	color:#blue;
+}
+
+h1{
+	color:#444;
+	font-family:helvetica;
+	font-size:3em;
+	text-align:center;
+	min-height:30px;
+}
+
+h1 > span{
+	color:#119;
+}
+
+h3 > span {
+	color:#119;
+}
+
+/* Named Elements */
+
+#home_content {
+	float:left;
+	margin-left:65px;
+	margin-right:65px;
+	width:920px;
+	margin-bottom:20px;
+}
+
+#lesson_display_area {
+	float:left;
+	width:600px;
+}
+
+#main_header {
+	float:left;
+	position:relative;
+	width:88%;
+	margin-top:10px;
+	margin-left:65px;
+	border-bottom:solid 6px #444;
+	text-align:left;
+}
+
+#main_footer {
+	float:left;
+	position:relative;
+	/*top:80%; */
+	width:88%;
+	margin-left:65px;
+	border-top:solid 6px #444;
+	text-align:left;
+}
+
+#main_header h1 {
+	color:#444;
+	font-family:helvetica;
+	font-size:3em;
+	text-align:left;
+	margin-bottom:8px;
+}
+
+#toolbox {
+	float:right;
+	width:250px;
+	margin-top:20px;
+}
+
+#show_area {
+	margin-bottom:8px;
+}
+
+#user_dash {
+	float:left;
+	width:640px;
+}
+
+/* CSS Class Definitions */
+
+.add_here_div {
+	color:gray;
+	display:block;
+	min-height:1px;
+	float:right;
+	padding:2px;
+}
+
+.add_item_field {
+	font-family: Tahoma, Verdana, Times, serif;
+	font-size: 1.2em;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	line-height: normal;
+	margin:2px;
+	
+}
+
+.add_note_label {
+	float:left;
+	width:45px;
+	padding:2px;
+}
+
+.card_note_display {
+	display:block;
+	
+}
+
+.card_display_area {
+	float:left;
+	width:640px;
+}
+
+.card_picker {
+	background:white none repeat scroll 0 0;
+	width:500px;
+	height:180px;
+	overflow:auto;
+	padding-left:15px;
+	padding-bottom:4px;
+	margin-left:5px;
+	margin-right:5px;
+}
+
+.small_card_display {
+	width:150px;
+	float:left;
+	margin:4px;
+	border:1px solid black;
+}
+
+.clear{
+	clear:both;
+}
+
+.float_item_add_bar {
+	color:white;
+	width:90%;
+	height:26px;
+	padding-top:3px;
+	padding-bottom:3px;
+	padding-left:10px;
+	background:#00A825; /*#A3C8DC;*/
+}
+
+.float_item_add_bar a {
+	color:white;
+}
+
+.item_add_bar {
+	color:white;
+	width:90%;
+	height:26px;
+	padding-top:4px;
+	padding-left:10px;
+	background:#00A825; /*#A3C8DC;*/
+}
+
+.item_add_bar a {
+	color:white;
+}
+
+.note_creation_form {
+	background:#E5E5E5;
+	margin:5px;
+	margin-right:50px;
+	padding-top:2px;
+	padding-left:15px;
+	
+}
+
+.note_show {
+	display:block;
+	padding-bottom:8px;
+}

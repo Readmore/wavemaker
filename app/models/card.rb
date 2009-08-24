@@ -42,7 +42,9 @@ class Card < GitRecord
     if h.empty?
       h = GitRecord.find_by_version("master", id, version, pub)
     end
-    h["author"] = h["author"].split(",")
+    if h["author"]
+      h["author"] = h["author"].split(",")
+    end
     c.attributes = h 
     c
   end

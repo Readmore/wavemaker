@@ -1,0 +1,48 @@
+<h3>Card Info</h3>
+<p> 
+	
+<div class="card_display_area">
+		<h4><%= @card.title %><br/>
+			<font size="smaller">&nbsp;by 
+			<% @card.author.each do |author| %>
+				<%= link_to author, :controller => "users", :action => "show", :id => author %>
+			<% end %>	
+			 on <%= @card.created_at %> </font></h4>
+			<p>
+			<% if @card.card_type == "Audio" %>
+				<embed src="http://webjay.org/flash/dark_player" width="400" height="40" wmode="transparent" flashVars="playlist_url=<%= @card.post %>&amp;skin_color_1=-145,-89,-4,5&skin_color_2=-141,20,0,0" type="application/x-shockwave-flash" />
+			<% elsif @card.card_type == "Image" %>
+				<%= image_tag @card.post %>
+			<% elsif @card.card_type == "Video" %>
+				<div id="video-<%= @card.id %>-container">
+				<embed src="http://localhost:3000/<%= @card.post %>"
+				href="http://localhost:3000/<%= @card.post %>"
+				width="640" height="500"
+				target="myself"
+				controller="false"
+				autoplay="false"
+				scale="1" cache="true"
+				type="video/quicktime"
+				pluginspage="http://www.apple.com/quicktime/download/">
+				</div>
+			<% else %>
+				<%= @card.post %>
+			<% end %>
+			</p>
+			<%= render :partial => "layouts/show_tags", :locals => {:tags => @card.tags.split(",") }%>
+
+	<p>
+		<%= link_to "Dashboard", :controller => "home", :action => "dashboard" %>
+		<% if @user %>
+			<% if @branch == "master" %>
+				<% if @user.role != "student" && !@card.author.include?(@user.login) %>
+					| <%= link_to "Clone", :action => :clone, :id => @card._id, :version => @version %>
+				<% end %>
+			<% elsif @card.author.include?(@user.login) %>
+				|
+				<%= link_to "Edit", :action => :edit, :id => @card._id %> |
+				<%= link_to "Destroy", card_path(@card._id), :method => :delete %>
+			<% end %>
+		<% end %>	
+	</p>
+</div>

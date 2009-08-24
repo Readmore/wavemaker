@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Wavemaker - Beta</title>
+	<meta name="author" content="eoc2">
+	<link rel="stylesheet" href="<%= $RAILS_ROOT %>/stylesheets/ajax-edit.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<%= javascript_include_tag :defaults %>
+	
+	
+</head>
+
+	<body width="95%">
+		<div id="main_header">
+			<h1>Wave<span>Maker</h1>
+		</div>
+		<div id="home_content">
+			<%= flash[:notice] %>
+			<%= yield %>
+			<div id="toolbox">
+				This is the right floating toolbox. This could be used to show user specific information, like their messages, course list, etc.
+			</div>
+			<div class="clear">
+			</div>
+		</div>
+		<div id="main_footer">
+			© 2009 <a href="http://www.tulsacc.edu">Tulsa Community College</a> | Developed by <a href="http://www.eoc2.com">eoc2</a>
+		</div>
+	</body>
+</html>

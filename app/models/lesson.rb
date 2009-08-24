@@ -45,7 +45,9 @@ class Lesson < GitRecord
       l.attributes["cards"] = l.attributes["cards"].split(",").each {|str| str.strip!}
       #l.cards = l.cards.split(",").each {|str| str.strip!}
     end
-    l.attributes["author"] = l.attributes["author"].split(",")
+    if l.attributes["author"]
+      l.attributes["author"] = l.attributes["author"].split(",")
+    end
     l
   end
   

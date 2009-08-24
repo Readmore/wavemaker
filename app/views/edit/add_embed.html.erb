@@ -1,0 +1,42 @@
+<% if @pos %>
+	<div id="add_embed_form_<%= @pos %>" class="note_creation_form">
+<% else %>
+	<div id="add_embed_form" class="note_creation_form">
+<% end %>
+	<h3>Add an Embed Object</h3>
+	<% form_remote_for @card, :url => {:controller => "edit", :action => "create_card" } do |f| %>
+		<div id="add_note_form_inputs">
+		
+			<div class="add_note_label"> Name: </div>
+			<%= f.text_field "title", :size => 40, :class => "add_item_field" %>
+				  <%= javascript_tag "$('card_title').focus()" %><br/>
+			<div class="add_note_label">Code: </div>
+			<%= f.text_area "post", :cols => 39, :rows => 5, :class => "add_item_field" %><br/>
+			
+			<div class="add_note_label">Tags: </div>
+			<%= f.text_field :tags, :size => 40, :class => "add_item_field" %><br/>
+			<%= f.label "Save this as Public:" %>
+			<%= f.check_box :public, :selected => "selected" %>
+			<br/>
+			<%= f.hidden_field "created_at" %>
+	
+			<%= hidden_field "lesson", "id", :value => @lesson_id %>
+			<%= f.hidden_field "card_type", :value => "Embed" %>
+			<%= f.hidden_field "author" %>
+			<%= f.hidden_field "type" %>
+			<%= f.hidden_field "_id" %>
+			<%= f.hidden_field "_rev" %>
+			<%= hidden_field "id", @card.attributes["_id"] %>
+			<%= hidden_field "form_type", "remote" %>
+			<% if @pos %>
+				<%= hidden_field "lesson", "position", :value => @pos %>
+				<%= submit_tag "Add Embed" %>
+				or <a href="#item_add_bar_<%= @pos %>" onClick="Effect.Fade('add_embed_form_<%= @pos %>', { duration: 0.5 });">Cancel</a>
+			<% else %>
+			<%= submit_tag "Add Embed" %>
+			or <a href="#add_embed_form" onClick="Effect.Fade('add_embed_form', { duration: 0.5 });">Cancel</a>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+<div class="clear"> </div>

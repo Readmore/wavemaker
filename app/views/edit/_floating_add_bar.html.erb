@@ -1,0 +1,16 @@
+<div id="add_here_div_<%= position %>" class="add_here_div" >
+	<span onMouseOver="Effect.Appear('item_add_bar_<%= position %>', { duration: 0.5 });"> + </span>
+</div>
+<div id="item_add_bar_<%= position %>" class="float_item_add_bar" style="display:none;">
+	Add: <%= link_to_remote "Note", :url => {:controller => "edit", :action => "add_card", :id => lesson._id, :ctype => "note", :pos => position },
+	 		:update => "item_add_location_#{ position }",
+	 		:complete => visual_effect(:blind_down, "item_add_location_#{ position }", :duration => 0.4) %>
+	| <%= link_to_remote "Image", :url => {:controller => "edit", :action => "add_card", :id => lesson._id, :ctype => "image", :pos => position },
+	 		:update => "item_add_location_#{ position }",
+			:complete => visual_effect(:blind_down, "item_add_location_#{ position }", :duration => 0.4) %>
+	| <%= link_to_remote "Embed", :url => {:controller => "edit", :action => "add_card", :id => lesson._id, :ctype => "embed", :pos => position },
+			:update => "item_add_location_#{ position }",
+			:complete => visual_effect(:blind_down, "item_add_location_#{ position }", :duration => 0.4) %>  
+	| <span onClick="Effect.Fade('item_add_bar_<%= position %>', {duration:0.5});"><a href="#add_here_div<%= position %>">Cancel</a></span>
+</div>
+<div id="item_add_location_<%= position %>"> </div>
